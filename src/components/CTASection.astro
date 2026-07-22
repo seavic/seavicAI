@@ -1,0 +1,46 @@
+---
+import { localPath } from "../lib/urls";
+
+interface Props {
+  title?: string;
+  lead?: string;
+}
+
+const {
+  title = "Start with the enterprise AI questions leadership already needs answered.",
+  lead = "SeaVic helps turn scattered AI activity into visible, accountable and governable decisions."
+} = Astro.props;
+---
+
+<section class="section section--navy">
+  <div class="container cta">
+    <div>
+      <p class="eyebrow">Next step</p>
+      <h2>{title}</h2>
+      <p class="lead">{lead}</p>
+    </div>
+    <div class="button-row">
+      <a class="button button--secondary" href={localPath("/contact/")}>Discuss Your Enterprise AI Priorities</a>
+      <a class="button" href={localPath("/how-we-work/")}>Assess Your AI Operating Readiness</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .cta .button {
+    border-color: var(--color-white);
+  }
+
+  @media (max-width: 780px) {
+    .cta {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

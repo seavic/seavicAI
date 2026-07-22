@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import EntryPathway from "../components/EntryPathway.astro";
+import FAQSection from "../components/FAQSection.astro";
+import CTASection from "../components/CTASection.astro";
+
+const description =
+  "SeaVic helps leadership manage enterprise AI as an operating portfolio connecting ownership, cost, value, risk, decision rights and executive reporting.";
+
+const faqs = [
+  {
+    question: "Why does AI need portfolio management?",
+    answer:
+      "AI adoption creates spend, risk, ownership and value questions across teams. Leaders need a common operating view for decisions, exceptions and investment governance."
+  },
+  {
+    question: "Does the page include a product platform?",
+    answer:
+      "No public platform wording is included while the relevant decision gate remains open. The page remains vendor-neutral by default."
+  }
+];
+---
+
+<BaseLayout title="Enterprise AI Management & Control Plane" description={description} path="/ai-management-control/">
+  <Breadcrumbs items={[{ label: "AI Management and Control", href: "/ai-management-control/" }]} />
+  <Hero
+    eyebrow="Manage"
+    title="Enterprise AI Management & Control Plane."
+    lead="SeaVic helps leadership manage enterprise AI as an operating portfolio connecting ownership, cost, value, risk, decision rights, exceptions and executive reporting."
+    showVisual={true}
+  />
+
+  <section class="section">
+    <div class="container grid grid--3">
+      {[
+        ["Portfolio visibility", "Clarify what AI initiatives, tools and workflows exist and who is responsible for them."],
+        ["Cost and value governance", "Connect spend, allocation, value evidence and investment thresholds to executive decisions."],
+        ["Exception management", "Define approval boundaries, escalation paths and evidence for recurring governance."]
+      ].map(([title, copy]) => (
+        <article class="card"><div class="card__body"><h3>{title}</h3><p>{copy}</p></div></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container two-column">
+      <SectionHeading
+        eyebrow="Executive reporting"
+        title="Move from scattered AI activity to decision-grade evidence."
+        lead="SeaVic helps leaders connect ownership, cost, value, risk and exceptions into a recurring management rhythm."
+      />
+      <div class="visual-panel">
+        <div class="control-map">
+          <div class="control-map__row"><div class="control-map__label">Portfolio</div><div class="control-map__value">Initiatives, tools and owners</div></div>
+          <div class="control-map__row"><div class="control-map__label">Economics</div><div class="control-map__value">Cost, value and thresholds</div></div>
+          <div class="control-map__row"><div class="control-map__label">Governance</div><div class="control-map__value">Decisions, exceptions and evidence</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Engagement pathway"
+        title="A control plane starts with visibility and accountability."
+      />
+      <EntryPathway />
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeading title="Common questions" />
+      <FAQSection items={faqs} />
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

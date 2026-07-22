@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { localPath } from "../../lib/urls";
+
+const description = "Insights placeholder for SeaVic Consulting. Substantive content is gated until founder approval.";
+---
+
+<BaseLayout title="Insights" description={description} path="/insights/" noindex={true}>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Gated</p>
+      <h1>Insights</h1>
+      <p class="lead">The Insights route and content model are prepared, but substantive articles and comparative buyer-education content are not published while DEC-013 remains open.</p>
+      <a class="button" href={localPath("/contact/")}>Contact SeaVic</a>
+    </div>
+  </section>
+</BaseLayout>

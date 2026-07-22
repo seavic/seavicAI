@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import EntryPathway from "../components/EntryPathway.astro";
+import FAQSection from "../components/FAQSection.astro";
+import CTASection from "../components/CTASection.astro";
+
+const description =
+  "SeaVic redesigns workflows, prioritizes use cases and establishes human accountability so AI initiatives can move safely from pilot to scale.";
+
+const faqs = [
+  {
+    question: "Why do AI pilots stall?",
+    answer:
+      "Pilots often lack clear ownership, redesigned workflows, value evidence, approval boundaries and change-management discipline."
+  },
+  {
+    question: "Does SeaVic operate autonomous systems for clients?",
+    answer:
+      "This launch site does not claim runtime control or autonomous enforcement. SeaVic focuses on workflow advisory, governance, human accountability and implementation discipline."
+  }
+];
+---
+
+<BaseLayout title="AI Enablement and Transformation" description={description} path="/ai-enablement-transformation/">
+  <Breadcrumbs items={[{ label: "AI Enablement and Transformation", href: "/ai-enablement-transformation/" }]} />
+  <Hero
+    eyebrow="Transform"
+    title="AI Enablement and Transformation."
+    lead="SeaVic redesigns workflows, prioritizes use cases and establishes human accountability so AI initiatives can move safely from pilot to scale."
+    showVisual={false}
+  />
+
+  <section class="section">
+    <div class="container grid grid--3">
+      {[
+        ["Use-case prioritization", "Select opportunities based on value, feasibility, risk and operating readiness."],
+        ["Workflow redesign", "Define future-state workflows, approval points, roles and practical implementation needs."],
+        ["Adoption governance", "Connect proof-of-value, change management and human accountability to the scale plan."]
+      ].map(([title, copy]) => (
+        <article class="card"><div class="card__body"><h3>{title}</h3><p>{copy}</p></div></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container two-column">
+      <SectionHeading
+        eyebrow="Human accountability"
+        title="AI transformation still needs clear human decision rights."
+        lead="SeaVic helps teams design where AI assists, where humans approve, and how business value is measured before broader adoption."
+      />
+      <ul class="list-clean">
+        <li>Current and future-state workflow maps.</li>
+        <li>Prioritized use-case backlog.</li>
+        <li>Human approval and escalation boundaries.</li>
+        <li>Proof-of-value measures and governance plan.</li>
+        <li>Adoption and organizational change roadmap.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading eyebrow="Engagement pathway" title="From pilot activity to governed scale." />
+      <EntryPathway />
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeading title="Common questions" />
+      <FAQSection items={faqs} />
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { localPath } from "../lib/urls";
+
+const description = "Page not found.";
+---
+
+<BaseLayout title="Page Not Found" description={description} path="/404/" noindex={true}>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">404</p>
+      <h1>Page not found.</h1>
+      <p class="lead">The page may have moved or the address may be incomplete.</p>
+      <div class="button-row">
+        <a class="button" href={localPath("/")}>Return home</a>
+        <a class="button button--secondary" href={localPath("/contact/")}>Contact SeaVic</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

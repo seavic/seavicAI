@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { localPath } from "../../lib/urls";
+
+const description =
+  "Internal SeaVic website concept selector comparing two WordPress-portable template directions.";
+---
+
+<BaseLayout title="Website Concept Builds" description={description} path="/concepts/" noindex={true}>
+  <section class="section concept-index">
+    <div class="container">
+      <p class="eyebrow">Internal comparison</p>
+      <h1>Two WordPress-portable website directions.</h1>
+      <p class="lead">
+        These concept builds keep the approved SeaVic messaging, gated-claims controls and brand palette intact while testing two WordPress template category directions for a possible EasyWP port.
+      </p>
+      <div class="concept-index__grid">
+        <article class="card">
+          <div class="card__body">
+            <p class="eyebrow">Build A</p>
+            <h2>Consulting / Professional Services</h2>
+            <p>
+              A senior advisory structure with a clear executive promise, services overview, method, founder credibility and contact pathway.
+            </p>
+            <a class="button" href={localPath("/concepts/consulting-professional-services/")}>Review Build A</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__body">
+            <p class="eyebrow">Build B</p>
+            <h2>Enterprise Technology / SaaS</h2>
+            <p>
+              A more structured operating-system style with control-plane framing, executive questions, dashboards-as-diagrams and modular capability bands.
+            </p>
+            <a class="button" href={localPath("/concepts/enterprise-technology/")}>Review Build B</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .concept-index__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .concept-index h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  @media (max-width: 760px) {
+    .concept-index__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,339 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTASection from "../../components/CTASection.astro";
+import EntryPathway from "../../components/EntryPathway.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { executiveQuestions, methodSteps, offerings, outcomes } from "../../data/content";
+import { localPath } from "../../lib/urls";
+
+const description =
+  "SeaVic Consulting helps mid-market and regulated organizations gain control of enterprise AI through governance, security, accountability, cost, value and transformation discipline.";
+---
+
+<BaseLayout
+  title="Gain Control of Enterprise AI"
+  description={description}
+  path="/concepts/enterprise-technology/"
+  noindex={true}
+>
+  <section class="tech-hero">
+    <div class="container tech-hero__grid">
+      <div class="tech-hero__copy">
+        <p class="eyebrow">AI Governance and Management Advisory</p>
+        <h1>Gain Control of Enterprise AI.</h1>
+        <p class="lead">
+          Organizations are adopting AI faster than they can control, secure, fund and manage it. SeaVic connects governance, security, accountability, cost, value and transformation so leaders can scale AI with evidence and control.
+        </p>
+        <div class="button-row">
+          <a class="button" href={localPath("/contact/")}>Discuss Your Enterprise AI Priorities</a>
+          <a class="button button--secondary" href={localPath("/how-we-work/")}>Assess Your AI Operating Readiness</a>
+        </div>
+      </div>
+      <div class="system-board" aria-label="Enterprise AI control model diagram">
+        <div class="system-board__header">
+          <span>Exposure</span>
+          <strong>AI use, tools, models and workflows</strong>
+        </div>
+        <div class="system-board__grid">
+          <div>
+            <span>Risk</span>
+            <p>Security, privacy, regulatory and operational impact</p>
+          </div>
+          <div>
+            <span>Owners</span>
+            <p>Decision rights, approvals and remediation</p>
+          </div>
+          <div>
+            <span>Value</span>
+            <p>Cost, outcome evidence and scale decisions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container tech-split">
+      <SectionHeading
+        eyebrow="Operating problem"
+        title="AI is becoming an operating-capability issue, not a side experiment."
+        lead="Leaders need a practical way to see what is being used, where risk sits, who owns decisions, what it costs and whether the business value justifies scaling."
+      />
+      <div class="question-stack">
+        {executiveQuestions.map((question) => (
+          <div>
+            <span>Question</span>
+            <p>{question}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Offerings"
+        title="Secure. Manage. Transform."
+        lead="SeaVic organizes enterprise AI control through three connected offering areas."
+      />
+      <div class="module-grid">
+        {offerings.map((offering) => (
+          <article>
+            <span>{offering.label}</span>
+            <h3>{offering.title}</h3>
+            <p>{offering.description}</p>
+            <ul>
+              {offering.points.map((point) => <li>{point}</li>)}
+            </ul>
+            <a href={localPath(offering.href)}>Explore {offering.label.toLowerCase()}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="How we work"
+        title="Diagnose, govern, implement, transform and manage."
+        lead="The method connects evidence gathering, decision rights, controls, adoption and recurring executive visibility."
+      />
+      <ol class="tech-method">
+        {methodSteps.map((step, index) => (
+          <li>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Entry pathway"
+        title="Start narrow, then scale the operating model."
+        lead="The approved pathway begins with an AI Control Diagnostic and can expand into comprehensive readiness, implementation and managed governance."
+      />
+      <EntryPathway />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container tech-split">
+      <SectionHeading
+        eyebrow="Business outcomes"
+        title="Control that supports responsible scale."
+        lead="SeaVic is built for leaders who need enterprise AI to become visible, accountable and measurable."
+      />
+      <ul class="list-clean outcome-grid">
+        {outcomes.map((outcome) => <li>{outcome}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container tech-split">
+      <SectionHeading
+        eyebrow="Senior-led model"
+        title="Built by experienced technology and transformation leaders."
+        lead="SeaVic Consulting is a senior-led boutique advisory firm connecting executive strategy, security, governance, accountability, cost, business value, workflow redesign and implementation discipline."
+      />
+      <div class="leader-grid">
+        <article>
+          <h3>Lui Sieh</h3>
+          <p>Senior digital and AI transformation leader connecting strategy, operating models, technology delivery, governance and organizational change.</p>
+        </article>
+        <article>
+          <h3>Victor Gan</h3>
+          <p>Senior technology, security and consulting leader with experience in enterprise solutions, delivery, partnerships and regional market development.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>
+
+<style>
+  .tech-hero {
+    padding-block: clamp(4.5rem, 9vw, 7.5rem);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-blue-gray);
+  }
+
+  .tech-hero__grid,
+  .tech-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+    gap: clamp(1.75rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .tech-hero__copy {
+    max-width: 900px;
+  }
+
+  .tech-hero__copy h1 {
+    margin-bottom: 1rem;
+  }
+
+  .tech-hero__copy .lead {
+    margin-bottom: 1.5rem;
+  }
+
+  .system-board,
+  .question-stack,
+  .leader-grid article {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .system-board {
+    overflow: hidden;
+  }
+
+  .system-board__header {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem;
+    background: var(--color-navy);
+    color: var(--color-white);
+  }
+
+  .system-board__grid,
+  .question-stack,
+  .leader-grid {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .system-board__grid {
+    padding: 1rem;
+  }
+
+  .system-board__grid div,
+  .question-stack div {
+    border: 1px solid var(--color-border);
+    border-left: 5px solid var(--color-teal);
+    border-radius: 6px;
+    padding: 0.9rem;
+  }
+
+  .question-stack {
+    padding: 1rem;
+  }
+
+  .system-board span,
+  .question-stack span,
+  .module-grid span,
+  .tech-method span {
+    color: var(--color-teal);
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .system-board__header span {
+    color: var(--color-white);
+  }
+
+  .system-board p,
+  .question-stack p {
+    margin: 0.25rem 0 0;
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .module-grid article,
+  .tech-method li {
+    min-height: 330px;
+    display: grid;
+    align-content: start;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    padding: 1.25rem;
+  }
+
+  .module-grid ul {
+    padding-left: 1.1rem;
+    color: var(--color-gray);
+  }
+
+  .module-grid a {
+    display: inline-flex;
+    margin-top: 1rem;
+    font-weight: 800;
+  }
+
+  .tech-method {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.8rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .tech-method li {
+    min-height: 235px;
+  }
+
+  .tech-method h3 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .outcome-grid li,
+  .leader-grid article {
+    padding: 1rem;
+  }
+
+  .outcome-grid li {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-white);
+  }
+
+  @media (max-width: 980px) {
+    .tech-method {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 920px) {
+    .tech-hero__grid,
+    .tech-split {
+      grid-template-columns: 1fr;
+    }
+
+    .module-grid,
+    .outcome-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .tech-method {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

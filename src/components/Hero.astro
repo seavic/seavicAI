@@ -1,0 +1,104 @@
+---
+import { localPath } from "../lib/urls";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+  showVisual?: boolean;
+}
+
+const {
+  eyebrow,
+  title,
+  lead,
+  primaryHref = "/contact/",
+  primaryLabel = "Discuss Your Enterprise AI Priorities",
+  secondaryHref = "/how-we-work/",
+  secondaryLabel = "Assess Your AI Operating Readiness",
+  showVisual = true
+} = Astro.props;
+---
+
+<section class="hero section">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{title}</h1>
+      <p class="lead">{lead}</p>
+      <div class="button-row">
+        <a class="button" href={localPath(primaryHref)}>{primaryLabel}</a>
+        <a class="button button--secondary" href={localPath(secondaryHref)}>{secondaryLabel}</a>
+      </div>
+    </div>
+    {showVisual && (
+      <div class="visual-panel hero__visual" aria-label="Enterprise AI control model diagram">
+        <div class="control-map">
+          <div class="control-map__row">
+            <div class="control-map__label">Exposure</div>
+            <div class="control-map__value">AI use, tools, models and workflows</div>
+          </div>
+          <div class="control-map__row">
+            <div class="control-map__label">Risk</div>
+            <div class="control-map__value">Security, privacy, regulatory and operational impact</div>
+          </div>
+          <div class="control-map__row">
+            <div class="control-map__label">Owners</div>
+            <div class="control-map__value">Decision rights, approvals and remediation</div>
+          </div>
+          <div class="control-map__row">
+            <div class="control-map__label">Value</div>
+            <div class="control-map__value">Cost, outcome evidence and scale decisions</div>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    border-bottom: 1px solid var(--color-border);
+    background:
+      linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%);
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .hero__copy {
+    max-width: 900px;
+  }
+
+  .hero__copy h1 {
+    margin-bottom: 1rem;
+  }
+
+  .hero__copy .lead {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__visual {
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 920px) {
+    .hero__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__visual {
+      min-height: auto;
+    }
+  }
+</style>

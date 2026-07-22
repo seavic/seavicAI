@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { siteConfig } from "../data/siteConfig";
+import { absoluteUrl } from "../lib/urls";
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  noindex?: boolean;
+}
+
+const { title, description, path = "/", noindex = false } = Astro.props;
+const canonical = absoluteUrl(path);
+const fullTitle = title.includes("SeavicAI") ? title : `${title} | ${siteConfig.brandName}`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${absoluteUrl("/")}#organization`,
+      name: siteConfig.corporateName,
+      legalName: siteConfig.legalName,
+      url: absoluteUrl("/"),
+      sameAs: [siteConfig.linkedInUrl]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${absoluteUrl("/")}#website`,
+      name: siteConfig.marketingDomain,
+      url: absoluteUrl("/"),
+      publisher: { "@id": `${absoluteUrl("/")}#organization` }
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteConfig.marketingDomain} />
+    <meta name="twitter:card" content="summary" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <SiteHeader />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>
