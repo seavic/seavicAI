@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://siehlui-seavic.github.io",
+  site: "https://staging.seavicai.com",
   base: "/seavicAI",
   output: "static",
   trailingSlash: "always",
