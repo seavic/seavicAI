@@ -5,9 +5,22 @@ Static launch website for SeaVic Consulting, built from the confirmed Website Bu
 ## Current Scope
 
 - Astro + TypeScript static site for GitHub Pages.
-- Public pages: Home, AI Security and Governance, AI Management and Control, AI Enablement and Transformation, How We Work, About, Contact, Privacy Notice, Website Terms, 404.
+- Public pages: Home, AI Governance, Risk and Compliance Advisory, AI Security and Governance Solutions, Kosmoy AI Management Platform, Managed AI Governance Services, AI Enablement and Transformation, How We Work, About, Contact, Privacy Notice, Website Terms, 404.
 - Insights route exists only as a noindex gated placeholder while DEC-013 remains open.
+- Internal noindex concept review pages are available for Build A and Build B.
 - Contact form, booking, analytics, partner attribution, and future platform modules are feature-flagged off by default.
+
+## Current Milestone
+
+Milestone completed on 2026-07-22: the temporary GitHub Pages review deployment is live. Current staging URL: `https://staging.seavicai.com/`.
+
+Review links:
+- Build A: `https://staging.seavicai.com/concepts/consulting-professional-services/`
+- Build B: `https://staging.seavicai.com/concepts/enterprise-technology/`
+
+Current status: waiting for Victor to review, request revisions, and approve the preferred direction before public-domain launch or EasyWP/Namecheap port planning.
+
+Revised staging update completed on 2026-07-30: public positioning now reflects the five-part SeaVic capability architecture: governance advisory, security and governance solutions, Kosmoy platform-enabled AI management, managed AI governance services and transformation.
 
 ## Commands
 
@@ -20,6 +33,6 @@ pnpm run lint
 
 ## Launch Controls
 
-Production deployment should run only from protected `main` through GitHub Pages. Before public launch, Lui and Victor must confirm final page copy, legal pages, contact routing, custom-domain DNS/HTTPS, accessibility/responsive QA, and founder go/no-go approval.
+Temporary review deployment runs from `main` through GitHub Pages. Before public launch, Lui and Victor must confirm final page copy, legal pages, contact routing, custom-domain DNS/HTTPS, accessibility/responsive QA, preferred template direction, and founder go/no-go approval.
 
 Rollback: in GitHub Pages, redeploy the prior successful workflow run or revert the release commit through a reviewed pull request, then verify the custom domain and critical pages.

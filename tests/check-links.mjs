@@ -16,13 +16,8 @@ function walk(target) {
 
 const htmlFiles = walk(dist).filter((file) => file.endsWith(".html"));
 const failures = [];
-const basePath = "/seavicAI";
 
 function routeExists(href) {
-  if (href.startsWith(basePath)) {
-    href = href.slice(basePath.length) || "/";
-  }
-
   if (href === "/") return fs.existsSync(path.join(dist, "index.html"));
   const clean = href.replace(/^\//, "").replace(/\/$/, "");
   return fs.existsSync(path.join(dist, clean, "index.html")) || fs.existsSync(path.join(dist, clean));

@@ -18,7 +18,9 @@ const prohibited = [
   /\bemergency containment\b/i,
   /\brate card\b/i,
   /\bpricing\b/i,
-  /\bKosmoy\b/i
+  /\bfully white-?label(?:ed|led)?\b/i,
+  /\bSeaVic-owned intellectual property\b/i,
+  /\bguaranteed product integration\b/i
 ];
 
 const allowedFiles = new Set([

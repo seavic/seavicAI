@@ -1,5 +1,5 @@
 export const siteConfig = {
-  siteUrl: "https://siehlui-seavic.github.io/seavicAI",
+  siteUrl: "https://staging.seavicai.com",
   legalName: "SeaVic Consulting LLC",
   corporateName: "SeaVic Consulting",
   brandName: "SeavicAI",

@@ -8,7 +8,7 @@ import FAQSection from "../components/FAQSection.astro";
 import CTASection from "../components/CTASection.astro";
 
 const description =
-  "SeaVic redesigns workflows, prioritizes use cases and establishes human accountability so AI initiatives can move safely from pilot to scale.";
+  "SeaVic supports AI strategy, roadmap, agentic workflow advisory, adoption governance and operational transformation so AI initiatives can move safely from pilot to scale.";
 
 const faqs = [
   {
@@ -29,16 +29,16 @@ const faqs = [
   <Hero
     eyebrow="Transform"
     title="AI Enablement and Transformation."
-    lead="SeaVic redesigns workflows, prioritizes use cases and establishes human accountability so AI initiatives can move safely from pilot to scale."
+    lead="SeaVic supports AI strategy, roadmap, agentic workflow advisory, adoption governance and operational transformation so AI initiatives can move safely from pilot to scale."
     showVisual={false}
   />
 
   <section class="section">
     <div class="container grid grid--3">
       {[
-        ["Use-case prioritization", "Select opportunities based on value, feasibility, risk and operating readiness."],
-        ["Workflow redesign", "Define future-state workflows, approval points, roles and practical implementation needs."],
-        ["Adoption governance", "Connect proof-of-value, change management and human accountability to the scale plan."]
+        ["AI strategy and roadmap", "Prioritize AI opportunities based on value, feasibility, risk, implementation dependencies and operating readiness."],
+        ["Agentic workflow advisory", "Define where AI agents or assistants may support work, where humans approve and how exception paths are controlled."],
+        ["Adoption and change", "Connect proof-of-value, change management, implementation governance and human accountability to the scale plan."]
       ].map(([title, copy]) => (
         <article class="card"><div class="card__body"><h3>{title}</h3><p>{copy}</p></div></article>
       ))}

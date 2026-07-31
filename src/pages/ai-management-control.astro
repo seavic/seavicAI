@@ -8,37 +8,37 @@ import FAQSection from "../components/FAQSection.astro";
 import CTASection from "../components/CTASection.astro";
 
 const description =
-  "SeaVic helps leadership manage enterprise AI as an operating portfolio connecting ownership, cost, value, risk, decision rights and executive reporting.";
+  "Kosmoy is SeaVic's AI management operating layer for cost and usage visibility, ownership, accountability, risk and action tracking, business-value measurement and executive dashboards.";
 
 const faqs = [
   {
-    question: "Why does AI need portfolio management?",
+    question: "What is Kosmoy?",
     answer:
-      "AI adoption creates spend, risk, ownership and value questions across teams. Leaders need a common operating view for decisions, exceptions and investment governance."
+      "Kosmoy is SeaVic's AI management operating layer for platform-enabled assessments, implementation and executive management routines."
   },
   {
-    question: "Does the page include a product platform?",
+    question: "Does Kosmoy replace governance advisory?",
     answer:
-      "No public platform wording is included while the relevant decision gate remains open. The page remains vendor-neutral by default."
+      "No. Kosmoy supports management visibility and evidence, while SeaVic advisory services help leaders define governance, ownership, risk decisions, actions and operating routines."
   }
 ];
 ---
 
-<BaseLayout title="Enterprise AI Management & Control Plane" description={description} path="/ai-management-control/">
-  <Breadcrumbs items={[{ label: "AI Management and Control", href: "/ai-management-control/" }]} />
+<BaseLayout title="Kosmoy AI Management Platform" description={description} path="/ai-management-control/">
+  <Breadcrumbs items={[{ label: "Kosmoy AI Management Platform", href: "/ai-management-control/" }]} />
   <Hero
     eyebrow="Manage"
-    title="Enterprise AI Management & Control Plane."
-    lead="SeaVic helps leadership manage enterprise AI as an operating portfolio connecting ownership, cost, value, risk, decision rights, exceptions and executive reporting."
+    title="Kosmoy AI Management Platform."
+    lead="Kosmoy is SeaVic's AI management operating layer for cost and usage visibility, ownership, accountability, risk and action tracking, business-value measurement and executive dashboards."
     showVisual={true}
   />
 
   <section class="section">
     <div class="container grid grid--3">
       {[
-        ["Portfolio visibility", "Clarify what AI initiatives, tools and workflows exist and who is responsible for them."],
-        ["Cost and value governance", "Connect spend, allocation, value evidence and investment thresholds to executive decisions."],
-        ["Exception management", "Define approval boundaries, escalation paths and evidence for recurring governance."]
+        ["Management operating layer", "Create a structured view of AI initiatives, workflows, owners, actions and executive decision needs."],
+        ["Cost and usage visibility", "Connect spend, usage, allocation and business-value evidence to governance and investment decisions."],
+        ["Risk and action tracking", "Track risk, remediation, exceptions and optimization actions so AI management becomes recurring."]
       ].map(([title, copy]) => (
         <article class="card"><div class="card__body"><h3>{title}</h3><p>{copy}</p></div></article>
       ))}
@@ -49,14 +49,14 @@ const faqs = [
     <div class="container two-column">
       <SectionHeading
         eyebrow="Executive reporting"
-        title="Move from scattered AI activity to decision-grade evidence."
-        lead="SeaVic helps leaders connect ownership, cost, value, risk and exceptions into a recurring management rhythm."
+        title="Move from scattered AI activity to a management operating layer."
+        lead="SeaVic uses Kosmoy to support recurring visibility across ownership, cost, usage, risk, actions, value and executive dashboards."
       />
       <div class="visual-panel">
         <div class="control-map">
-          <div class="control-map__row"><div class="control-map__label">Portfolio</div><div class="control-map__value">Initiatives, tools and owners</div></div>
-          <div class="control-map__row"><div class="control-map__label">Economics</div><div class="control-map__value">Cost, value and thresholds</div></div>
-          <div class="control-map__row"><div class="control-map__label">Governance</div><div class="control-map__value">Decisions, exceptions and evidence</div></div>
+          <div class="control-map__row"><div class="control-map__label">Portfolio</div><div class="control-map__value">Initiatives, tools, workflows and owners</div></div>
+          <div class="control-map__row"><div class="control-map__label">Economics</div><div class="control-map__value">Cost, usage, value and thresholds</div></div>
+          <div class="control-map__row"><div class="control-map__label">Actions</div><div class="control-map__value">Risks, exceptions, decisions and evidence</div></div>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@ const faqs = [
     <div class="container">
       <SectionHeading
         eyebrow="Engagement pathway"
-        title="A control plane starts with visibility and accountability."
+        title="A management platform starts with visibility and accountability."
       />
       <EntryPathway />
     </div>

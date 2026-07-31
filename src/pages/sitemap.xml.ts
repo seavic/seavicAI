@@ -2,8 +2,10 @@ import { absoluteUrl } from "../lib/urls";
 
 const publicRoutes = [
   "/",
+  "/ai-governance-risk-compliance-advisory/",
   "/ai-security-governance/",
   "/ai-management-control/",
+  "/managed-ai-governance-services/",
   "/ai-enablement-transformation/",
   "/how-we-work/",
   "/about/",
