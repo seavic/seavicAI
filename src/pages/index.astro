@@ -1,0 +1,169 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import OfferingCard from "../components/OfferingCard.astro";
+import MethodologySteps from "../components/MethodologySteps.astro";
+import EntryPathway from "../components/EntryPathway.astro";
+import CTASection from "../components/CTASection.astro";
+import {
+  audienceQualifier,
+  buyerGroups,
+  buyerIntro,
+  discoveryCallPrompt,
+  executiveQuestions,
+  homepageDescription,
+  homepageLead,
+  leadership,
+  offerings,
+  outcomes,
+  triggerEvents,
+  triggerIntro
+} from "../data/content";
+---
+
+<BaseLayout title="Gain Control of Enterprise AI" description={homepageDescription}>
+  <Hero
+    eyebrow="AI Governance and Management Advisory"
+    title="Gain Control of Enterprise AI."
+    lead={homepageLead}
+  />
+
+  <section class="section">
+    <div class="container two-column">
+      <SectionHeading
+        eyebrow="Who We Work With"
+        title="For leaders who are accountable for what happens when AI moves beyond experimentation."
+      />
+      <div class="stack">
+        {buyerIntro.slice(1).map((paragraph) => <p>{paragraph}</p>)}
+        <p><strong>{audienceQualifier}</strong></p>
+      </div>
+    </div>
+    <div class="container grid grid--buyer">
+      {buyerGroups.map((group, index) => (
+        <article class="card">
+          <div class="card__body">
+            <p class="eyebrow">{String(index + 1).padStart(2, "0")}</p>
+            <h3>{group.title}</h3>
+            <p>{group.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container two-column">
+      <SectionHeading
+        eyebrow="When to Engage SeaVic"
+        title="AI does not have to be in crisis before the operating model needs attention."
+      />
+      <div class="stack">
+        {triggerIntro.slice(1).map((paragraph) => <p>{paragraph}</p>)}
+        <p>{discoveryCallPrompt}</p>
+      </div>
+    </div>
+    <div class="container grid grid--buyer">
+      {triggerEvents.map((event, index) => (
+        <article class="card">
+          <div class="card__body">
+            <p class="eyebrow">{String(index + 1).padStart(2, "0")}</p>
+            <p>{event}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Offerings"
+        title="Secure. Manage. Transform."
+        lead="SeaVic organizes enterprise AI control through the three connected offering areas approved for launch."
+      />
+      <div class="grid grid--3">
+        {offerings.map((offering) => <OfferingCard {...offering} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container two-column">
+      <SectionHeading
+        eyebrow="Executive questions"
+        title="SeaVic helps leadership answer five connected questions."
+        lead="Those questions connect visibility, risk, ownership, cost and business value into the decisions leaders need to make."
+      />
+      <div class="visual-panel">
+        <div class="control-map">
+          {executiveQuestions.map((question) => (
+            <div class="control-map__row">
+              <div class="control-map__label">Question</div>
+              <div class="control-map__value">{question}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="How we work"
+        title="Diagnose, govern, implement, transform and manage."
+        lead="The firm-wide method connects evidence gathering, decision rights, controls, adoption and recurring executive visibility."
+      />
+      <MethodologySteps />
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Entry pathway"
+        title="Start narrow, then scale the operating model."
+        lead="The approved pathway begins with an AI Control Diagnostic and can expand into comprehensive readiness, implementation and managed governance."
+      />
+      <EntryPathway />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-column">
+      <SectionHeading
+        eyebrow="Business outcomes"
+        title="Control that supports responsible scale."
+        lead="SeaVic is built for leaders who need enterprise AI to become visible, accountable and measurable."
+      />
+      <ul class="list-clean">
+        {outcomes.map((outcome) => <li>{outcome}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container two-column">
+      <SectionHeading
+        eyebrow="Senior-led model"
+        title="Built by experienced technology and transformation leaders."
+        lead="SeaVic Consulting is a senior-led advisory firm connecting executive strategy, security, governance, accountability, cost, business value, workflow redesign and implementation discipline."
+      />
+      <div class="grid">
+        {leadership.map((leader) => (
+          <article class="card">
+            <div class="card__body">
+              <h3>{leader.name}</h3>
+              {leader.title && <p class="eyebrow">{leader.title}</p>}
+              <p>{leader.bio}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

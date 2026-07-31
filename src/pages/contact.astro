@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ContactPanel from "../components/ContactPanel.astro";
+import Hero from "../components/Hero.astro";
+import { siteConfig } from "../data/siteConfig";
+
+const description =
+  "Book a SeaVic Discovery Call to discuss the AI decision, operating issue or governance question in front of you.";
+---
+
+<BaseLayout title="Book a SeaVic Discovery Call" description={description} path="/contact/">
+  <Breadcrumbs items={[{ label: "Contact", href: "/contact/" }]} />
+  <Hero
+    eyebrow="Discovery Call"
+    title="Book a SeaVic Discovery Call."
+    lead="A SeaVic Discovery Call is a focused conversation about what is happening, what leadership needs to decide and whether there is a useful next step for SeaVic to support."
+    showVisual={false}
+  />
+
+  <section class="section">
+    <div class="container two-column">
+      <ContactPanel />
+      <div class="visual-panel">
+        <h2>Useful context to include</h2>
+        <ul class="list-clean">
+          <li>Name and company.</li>
+          <li>Business email and role.</li>
+          <li>The AI decision, operating issue or governance question in front of you.</li>
+          <li>Whether the issue relates primarily to security, management, transformation or a broader operating-model decision.</li>
+        </ul>
+        <p>
+          Email fallback: <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.
+        </p>
+        <p>Please do not send confidential, regulated or sensitive information through the website or before appropriate boundaries are established.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

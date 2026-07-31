@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CTASection from "../components/CTASection.astro";
+import FAQSection from "../components/FAQSection.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { servicePages } from "../data/content";
+
+const page = servicePages.management;
+---
+
+<BaseLayout title={page.title} description={page.description} path={page.href}>
+  <Breadcrumbs items={[{ label: page.navLabel, href: page.href }]} />
+  <Hero eyebrow={page.eyebrow} title={page.title} lead={page.heroHeadline} showVisual={true} />
+
+  <section class="section">
+    <div class="container two-column">
+      <SectionHeading eyebrow="Business problem" title="Manage AI as an enterprise capability." />
+      <div class="stack">
+        {page.intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container two-column">
+      <SectionHeading eyebrow="The management problem" title="AI complexity grows one decision at a time." lead={page.problem} />
+      <div class="visual-panel">
+        <h3>Core problem areas</h3>
+        <p>{page.coreProblems}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Four management disciplines"
+        title="Register, Observe, Govern and Control."
+        lead="These disciplines sit inside the AI Management and Control offering. SeaVic's firm-wide client journey remains Diagnose, Govern, Implement, Transform and Manage."
+      />
+      <div class="grid grid--4">
+        {page.disciplines.map((discipline) => (
+          <article class="card"><div class="card__body"><h3>{discipline.title}</h3><p>{discipline.description}</p></div></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container grid grid--3">
+      <article class="card"><div class="card__body"><h3>Enterprise principle</h3><p>{page.enterprisePrinciple}</p></div></article>
+      <article class="card"><div class="card__body"><h3>Where it is relevant</h3><p>{page.relevance}</p></div></article>
+      <article class="card"><div class="card__body"><h3>What SeaVic does</h3><p>{page.does}</p></div></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-column">
+      <SectionHeading eyebrow="Engagement" title="Start with the management questions leadership cannot answer reliably today." lead={page.engagement} />
+      <div class="visual-panel">
+        <h3>Outputs may include</h3>
+        <ul class="list-clean">
+          {page.outputs.map((output) => <li>{output}</li>)}
+        </ul>
+        <p>{page.ctaPrompt}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeading title="Common questions" />
+      <FAQSection items={page.faqs} />
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

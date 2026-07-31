@@ -1,0 +1,41 @@
+---
+import { localPath } from "../lib/urls";
+
+interface Props {
+  label: string;
+  title: string;
+  description: string;
+  href: string;
+  points: string[];
+}
+
+const { label, title, description, href, points } = Astro.props;
+---
+
+<article class="card offering-card">
+  <div class="card__body">
+    <p class="eyebrow">{label}</p>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <ul class="list-clean">
+      {points.map((point) => <li>{point}</li>)}
+    </ul>
+    <a href={localPath(href)}>Explore {label.toLowerCase()}</a>
+  </div>
+</article>
+
+<style>
+  .offering-card {
+    height: 100%;
+  }
+
+  .offering-card h3 {
+    min-height: 2.9em;
+  }
+
+  .offering-card a {
+    display: inline-flex;
+    margin-top: 1rem;
+    font-weight: 800;
+  }
+</style>

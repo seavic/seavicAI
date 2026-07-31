@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CTASection from "../components/CTASection.astro";
+import EntryPathway from "../components/EntryPathway.astro";
+import FAQSection from "../components/FAQSection.astro";
+import Hero from "../components/Hero.astro";
+import MethodologySteps from "../components/MethodologySteps.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { globalFaqs } from "../data/content";
+
+const description =
+  "SeaVic works through a practical sequence: Diagnose, Govern, Implement, Transform and Manage.";
+---
+
+<BaseLayout title="Diagnose. Govern. Implement. Transform. Manage." description={description} path="/how-we-work/">
+  <Breadcrumbs items={[{ label: "How We Work", href: "/how-we-work/" }]} />
+  <Hero
+    eyebrow="Method"
+    title="Diagnose. Govern. Implement. Transform. Manage."
+    lead="SeaVic combines evidence gathering, governance design, implementation discipline, workflow transformation and recurring management support."
+    showVisual={false}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Sequence"
+        title="A senior-led method for enterprise AI control."
+        lead="The sequence keeps accountability, evidence and practical adoption connected from first diagnostic through ongoing governance."
+      />
+      <MethodologySteps />
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Entry pathway"
+        title="The pathway can start small or expand into managed governance."
+      />
+      <EntryPathway />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid--3">
+      {[
+        ["Human accountability", "Decision rights, approval boundaries and escalation paths are designed into the operating model."],
+        ["Evidence discipline", "Claims, findings and recommendations are tied to reviewable evidence and leadership-ready decisions."],
+        ["Client-first technology posture", "Technology may accelerate delivery, but it does not define the client relationship or replace advisory judgment."]
+      ].map(([title, copy]) => (
+        <article class="card"><div class="card__body"><h3>{title}</h3><p>{copy}</p></div></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <SectionHeading title="Common questions" />
+      <FAQSection items={globalFaqs} />
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

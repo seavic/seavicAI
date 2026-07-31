@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CTASection from "../components/CTASection.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { aboutStatement, leadership } from "../data/content";
+
+const description =
+  "SeaVic Consulting is a senior-led AI Governance and Management Advisory firm for enterprises, regulated and risk-sensitive organizations, business units, and selected technology service providers.";
+---
+
+<BaseLayout title="About SeaVic Consulting" description={description} path="/about/">
+  <Breadcrumbs items={[{ label: "About", href: "/about/" }]} />
+  <Hero
+    eyebrow="About"
+    title="Senior-led AI Governance and Management Advisory."
+    lead={aboutStatement}
+    showVisual={false}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Leadership"
+        title="Experienced technology, security and transformation leadership."
+        lead="SeaVic connects strategy, governance, security, business value and implementation discipline through senior-led advisory work."
+      />
+      <div class="grid grid--2">
+        {leadership.map((leader) => (
+          <article class="card">
+            <div class="card__body">
+              <h3>{leader.name}</h3>
+              {leader.title && <p class="eyebrow">{leader.title}</p>}
+              <p>{leader.bio}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container two-column">
+      <SectionHeading
+        eyebrow="Advisory model"
+        title="Practical, evidence-based and client-first."
+        lead="SeaVic is vendor-aware, but client outcomes and governance discipline come first. Technology may support delivery where it closes a defined management or control gap."
+      />
+      <div class="visual-panel">
+        <h3>What this means in practice</h3>
+        <ul class="list-clean">
+          <li>Start with the decision leadership needs to make.</li>
+          <li>Connect governance to ownership, cost, value and risk.</li>
+          <li>Define controls and operating routines that teams can actually use.</li>
+          <li>Keep public claims tied to approved evidence.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>
