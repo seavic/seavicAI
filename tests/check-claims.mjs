@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const roots = ["src", "public", "README.md", "CONTENT_GOVERNANCE.md"];
+const roots = ["src", "public", "README.md", "CONTENT_GOVERNANCE.md", "docs"];
 const prohibited = [
   /\bcertified\b/i,
   /\bexclusive\b/i,
@@ -18,6 +18,7 @@ const prohibited = [
   /\bemergency containment\b/i,
   /\brate card\b/i,
   /\bpricing\b/i,
+  /\bKosmoy\b/i,
   /\bfully white-?label(?:ed|led)?\b/i,
   /\bSeaVic-owned intellectual property\b/i,
   /\bguaranteed product integration\b/i

@@ -11,13 +11,11 @@ Current review state as of 2026-07-22:
 - Concept pages remain noindex and are intended for founder/internal review.
 - Next gate: Victor review, requested revisions, preferred direction selection, and founder approval before public launch or EasyWP/Namecheap port planning.
 
-Revised staging state as of 2026-07-30:
+Hotfix state as of 2026-07-30:
 
-- Staging content has been updated to reflect the revised SeaVic capability architecture.
-- Kosmoy may be referenced as SeaVic's AI management operating layer and platform-enabled service capability.
-- AI Security and Governance Solutions may reference partner-enabled visibility and findings, but must not present partner technology as SeaVic-owned IP.
-- CinderLabs-specific commercial, branding, deployment, performance, security certification and regulatory claims remain gated until supported by an approved partner and solution brief.
-- Staging pages must continue to distinguish SeaVic advisory services, Kosmoy technology, partner-provided technology and managed governance services.
+- Staging source is restored to the approved three-offering architecture while DEC-025 remains open.
+- Public platform wording remains gated until the relevant decision is approved.
+- Partner-specific commercial, branding, deployment, performance, security certification and regulatory claims remain gated until supported by an approved partner and solution brief.
 
 Do not publish:
 

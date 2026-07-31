@@ -11,9 +11,8 @@ Review URLs:
 
 ## Current State
 
-- Revised staging content now reflects the five-part SeaVic capability architecture.
-- Governance advisory, security and governance solutions, Kosmoy platform-enabled AI management, managed AI governance services and transformation are represented on the staging site.
-- Build A and Build B have been remapped to the revised homepage content.
+- Staging content is restored to the approved three-offering architecture.
+- Build A and Build B have been remapped to the approved homepage content.
 - Build A uses a consulting/professional-services template direction.
 - Build B uses an enterprise-technology/SaaS template direction.
 - Concept review pages are noindex and not intended as public sitemap entries.
@@ -32,3 +31,7 @@ Before public-domain launch or EasyWP/Namecheap port planning, confirm:
 - Brand assets and favicon package.
 - Custom-domain DNS/HTTPS setup.
 - Final accessibility and responsive QA.
+
+## 2026-07-30 Hotfix
+
+Removed public/staging source changes that introduced an unapproved capability architecture and DEC-025-gated platform wording. The staging site source is restored to the approved three-offering model while DEC-025 remains open.

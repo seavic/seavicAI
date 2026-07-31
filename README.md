@@ -5,7 +5,7 @@ Static launch website for SeaVic Consulting, built from the confirmed Website Bu
 ## Current Scope
 
 - Astro + TypeScript static site for GitHub Pages.
-- Public pages: Home, AI Governance, Risk and Compliance Advisory, AI Security and Governance Solutions, Kosmoy AI Management Platform, Managed AI Governance Services, AI Enablement and Transformation, How We Work, About, Contact, Privacy Notice, Website Terms, 404.
+- Public pages: Home, AI Security and Governance, AI Management and Control, AI Enablement and Transformation, How We Work, About, Contact, Privacy Notice, Website Terms, 404.
 - Insights route exists only as a noindex gated placeholder while DEC-013 remains open.
 - Internal noindex concept review pages are available for Build A and Build B.
 - Contact form, booking, analytics, partner attribution, and future platform modules are feature-flagged off by default.
@@ -20,7 +20,7 @@ Review links:
 
 Current status: waiting for Victor to review, request revisions, and approve the preferred direction before public-domain launch or EasyWP/Namecheap port planning.
 
-Revised staging update completed on 2026-07-30: public positioning now reflects the five-part SeaVic capability architecture: governance advisory, security and governance solutions, Kosmoy platform-enabled AI management, managed AI governance services and transformation.
+Hotfix completed on 2026-07-30: staging source was restored to the approved three-offering architecture while DEC-025 remains open.
 
 ## Commands
 

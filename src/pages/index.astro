@@ -9,14 +9,14 @@ import CTASection from "../components/CTASection.astro";
 import { executiveQuestions, offerings, outcomes } from "../data/content";
 
 const description =
-  "SeaVic Consulting helps mid-market and regulated organizations gain control of enterprise AI through governance advisory, security visibility, platform-enabled management, managed governance and transformation discipline.";
+  "SeaVic Consulting helps mid-market and regulated organizations gain control of enterprise AI through governance, security, accountability, cost, value and transformation discipline.";
 ---
 
 <BaseLayout title="Gain Control of Enterprise AI" description={description}>
   <Hero
     eyebrow="AI Governance and Management Advisory"
     title="Gain Control of Enterprise AI."
-    lead="Organizations are adopting AI faster than they can govern, secure, fund and manage it. SeaVic connects governance advisory, partner-enabled security visibility, Kosmoy platform-enabled management, managed governance services and transformation discipline so leaders can scale AI with evidence and control."
+    lead="Organizations are adopting AI faster than they can control, secure, fund and manage it. SeaVic connects governance, security, accountability, cost, value and transformation so leaders can scale AI with evidence and control."
   />
 
   <section class="section">
@@ -43,10 +43,10 @@ const description =
     <div class="container">
       <SectionHeading
         eyebrow="Offerings"
-        title="Govern. Secure. Manage. Operate. Transform."
-        lead="SeaVic organizes enterprise AI control through five connected capability areas."
+        title="Secure. Manage. Transform."
+        lead="SeaVic organizes enterprise AI control through three connected offering areas."
       />
-      <div class="service-architecture">
+      <div class="grid grid--3">
         {offerings.map((offering) => <OfferingCard {...offering} />)}
       </div>
     </div>
@@ -68,7 +68,7 @@ const description =
       <SectionHeading
         eyebrow="Entry pathway"
         title="Start narrow, then scale the operating model."
-        lead="The pathway begins with an AI Control Diagnostic and can expand into governance readiness, security visibility, platform-enabled management, managed governance and transformation support."
+        lead="The approved pathway begins with an AI Control Diagnostic and can expand into comprehensive readiness, implementation and managed governance."
       />
       <EntryPathway />
     </div>
@@ -92,7 +92,7 @@ const description =
       <SectionHeading
         eyebrow="Senior-led model"
         title="Built by experienced technology and transformation leaders."
-        lead="SeaVic Consulting is a senior-led boutique advisory firm connecting executive strategy, AI governance, security visibility, Kosmoy platform-enabled management, accountability, cost, business value, workflow redesign and implementation discipline."
+        lead="SeaVic Consulting is a senior-led boutique advisory firm connecting executive strategy, security, governance, accountability, cost, business value, workflow redesign and implementation discipline."
       />
       <div class="grid">
         <article class="card">
@@ -113,23 +113,3 @@ const description =
 
   <CTASection />
 </BaseLayout>
-
-<style>
-  .service-architecture {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  @media (max-width: 1180px) {
-    .service-architecture {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 560px) {
-    .service-architecture {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

@@ -8,28 +8,28 @@ import FAQSection from "../components/FAQSection.astro";
 import CTASection from "../components/CTASection.astro";
 
 const description =
-  "SeaVic helps organizations make AI use visible, assess security exposure and turn partner-enabled findings into practical governance and remediation actions.";
+  "SeaVic helps organizations make AI use visible, secure, accountable and auditable through governance design, risk assessment and control implementation.";
 
 const faqs = [
   {
-    question: "Is partner technology separate from SeaVic services?",
+    question: "Is this a software implementation page?",
     answer:
-      "No. Partner-provided technology is treated separately from SeaVic consulting services and Kosmoy technology. SeaVic focuses on advisory, interpretation, remediation planning and governance services."
+      "No. SeaVic leads with advisory, governance design, risk assessment, control implementation and executive interpretation. Technology may support delivery only where approved and useful."
   },
   {
-    question: "Does SeaVic provide legal, regulatory or product certification?",
+    question: "Does SeaVic provide legal or regulatory certification?",
     answer:
-      "No. SeaVic helps organizations build evidence, controls and governance discipline. Legal, regulatory, formal audit and product certification conclusions require appropriate specialists and approved evidence."
+      "No. SeaVic helps organizations build evidence, controls and governance discipline; legal, regulatory and formal compliance conclusions require appropriate counsel and approved evidence."
   }
 ];
 ---
 
-<BaseLayout title="AI Security and Governance Solutions" description={description} path="/ai-security-governance/">
-  <Breadcrumbs items={[{ label: "AI Security and Governance Solutions", href: "/ai-security-governance/" }]} />
+<BaseLayout title="AI Security and Governance" description={description} path="/ai-security-governance/">
+  <Breadcrumbs items={[{ label: "AI Security and Governance", href: "/ai-security-governance/" }]} />
   <Hero
     eyebrow="Secure"
-    title="AI Security and Governance Solutions."
-    lead="SeaVic helps organizations make AI use visible, assess security exposure and turn partner-enabled findings into practical governance and remediation actions."
+    title="AI Security and Governance."
+    lead="SeaVic helps organizations make AI use visible, secure, accountable and auditable through governance design, risk assessment, control implementation and validated partner-enabled capabilities."
     showVisual={false}
   />
 
@@ -37,8 +37,8 @@ const faqs = [
     <div class="container grid grid--3">
       {[
         ["Client conditions", "AI tools are spreading faster than policies, ownership and security review can keep up."],
-        ["Security visibility", "Review AI application use, sensitive-data exposure, data-loss risks and security posture where validated partner evidence is available."],
-        ["SeaVic role", "Interpret findings, advise leaders, design governance controls and plan remediation while keeping partner technology separate from SeaVic advisory services."]
+        ["What SeaVic assesses", "AI use, risk triggers, decision rights, control gaps, evidence needs and readiness for accountable scale."],
+        ["Operating model", "Governance structure, roles, controls, intake, escalation and remediation disciplines."]
       ].map(([title, copy]) => (
         <article class="card"><div class="card__body"><h3>{title}</h3><p>{copy}</p></div></article>
       ))}
@@ -48,9 +48,9 @@ const faqs = [
   <section class="section section--tint">
     <div class="container">
       <SectionHeading
-        eyebrow="Responsibility model"
-        title="Technology findings still need executive interpretation and governance action."
-        lead="SeaVic separates advisory services from partner-provided technology, then helps leaders turn visibility, risk findings and remediation needs into accountable decisions."
+        eyebrow="Readiness connection"
+        title="From visibility to auditable operating control."
+        lead="Security and governance work connects into the approved assessment pathway so findings become executive decisions, remediation actions and recurring management routines."
       />
       <EntryPathway />
     </div>
@@ -64,10 +64,10 @@ const faqs = [
       />
       <ul class="list-clean">
         <li>AI exposure and ownership map.</li>
-        <li>Security visibility and sensitive-data exposure review.</li>
         <li>Risk and control matrix.</li>
+        <li>Governance roles and decision-rights model.</li>
         <li>Prioritized remediation roadmap.</li>
-        <li>Executive readout and governance action plan.</li>
+        <li>Executive readout and next-step pathway.</li>
       </ul>
     </div>
   </section>
