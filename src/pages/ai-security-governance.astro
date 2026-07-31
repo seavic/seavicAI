@@ -12,7 +12,7 @@ const page = servicePages.security;
 
 <BaseLayout title={page.title} description={page.description} path={page.href}>
   <Breadcrumbs items={[{ label: page.title, href: page.href }]} />
-  <Hero eyebrow={page.eyebrow} title={page.heroHeadline} lead={page.description} showVisual={false} />
+  <Hero eyebrow={page.eyebrow} title={page.heroHeadline} lead={page.description} showVisual={false} size="compact" />
 
   <section class="section">
     <div class="container two-column">
@@ -34,9 +34,11 @@ const page = servicePages.security;
   <section class="section">
     <div class="container two-column">
       <SectionHeading eyebrow="Outputs" title="Practical evidence for leaders, risk owners and operating teams." />
-      <ul class="list-clean">
-        {page.outputs.map((output) => <li>{output}</li>)}
-      </ul>
+      <div class="visual-panel">
+        <ul class="list-clean">
+          {page.outputs.map((output) => <li>{output}</li>)}
+        </ul>
+      </div>
     </div>
   </section>
 
