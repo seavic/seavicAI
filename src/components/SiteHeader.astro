@@ -1,0 +1,161 @@
+---
+import { primaryNavigation } from "../data/navigation";
+import { siteConfig } from "../data/siteConfig";
+import { localPath } from "../lib/urls";
+---
+
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a class="wordmark" href={localPath("/")} aria-label="SeavicAI home">
+      <span class="wordmark__main">Seavic<span>AI</span></span>
+      <span class="wordmark__sub">CONSULTING</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {primaryNavigation.map((item) => <a href={localPath(item.href)}>{item.label}</a>)}
+    </nav>
+    <a class="header-cta" href={localPath("/contact/")}>{siteConfig.marketingDomain}</a>
+    <details class="mobile-nav">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile navigation">
+        {primaryNavigation.map((item) => <a href={localPath(item.href)}>{item.label}</a>)}
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.96);
+  }
+
+  .site-header__inner {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 2vw, 2.25rem);
+  }
+
+  .wordmark {
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 160px;
+    color: var(--color-navy);
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .wordmark__main {
+    font-size: 1.38rem;
+    font-weight: 800;
+  }
+
+  .wordmark__main span,
+  .wordmark__sub {
+    color: var(--color-teal);
+  }
+
+  .wordmark__sub {
+    margin-top: 0.18rem;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+  }
+
+  .desktop-nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: clamp(1.9rem, 3vw, 4.25rem);
+    align-items: center;
+    min-width: 0;
+    padding-inline: clamp(0.75rem, 1.5vw, 2rem);
+  }
+
+  .desktop-nav a {
+    max-width: 190px;
+    color: var(--color-ink);
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-decoration: none;
+  }
+
+  .desktop-nav a:first-child {
+    margin-right: clamp(0.35rem, 1vw, 1.4rem);
+  }
+
+  .desktop-nav a:first-child,
+  .desktop-nav a:nth-last-child(-n + 2) {
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  .desktop-nav a:hover {
+    color: var(--color-teal);
+  }
+
+  .header-cta {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-navy);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .mobile-nav {
+    display: none;
+    margin-left: auto;
+  }
+
+  .mobile-nav summary {
+    min-height: 44px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-navy);
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .mobile-nav nav {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 70px;
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .mobile-nav a {
+    padding: 0.85rem;
+    color: var(--color-ink);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  @media (max-width: 1020px) {
+    .desktop-nav,
+    .header-cta {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: block;
+    }
+  }
+</style>
