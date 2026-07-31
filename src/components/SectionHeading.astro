@@ -1,0 +1,32 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  size?: "default" | "compact";
+}
+
+const { eyebrow, title, lead, size = "default" } = Astro.props;
+const className = size === "compact" ? "section-heading section-heading--compact" : "section-heading";
+---
+
+<div class={className}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h2>{title}</h2>
+  {lead && <p class="lead">{lead}</p>}
+</div>
+
+<style>
+  .section-heading {
+    max-width: 860px;
+    margin-bottom: 2rem;
+  }
+
+  .section-heading--compact h2 {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+  }
+
+  .section-heading--compact .lead {
+    font-size: 1.03rem;
+  }
+</style>
