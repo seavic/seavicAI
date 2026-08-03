@@ -351,6 +351,7 @@ p {
 .hero .button { border-color: var(--color-white); background: var(--color-white); color: var(--color-navy); }
 .hero .button--secondary { background: transparent; color: var(--color-white); }
 .hero__visual { min-width: 0; min-height: 280px; display: flex; align-items: center; }
+.hero__visual .concept { width: 100%; }
 .hero__visual--hero-control, .hero__visual--risk-evidence, .hero__visual--management, .hero__visual--workflow, .hero__visual--about, .hero__visual--contact { min-height: 350px; padding: 0.5rem 0; }
 
 .concept { margin: 0; min-width: 0; }
@@ -375,6 +376,9 @@ p {
 .center-label { font-size: 20px; }
 .stage-label { font-size: 21px; }
 .stage-detail { font-size: 16px; font-weight: 600; }
+.concept--management .stage-label { font-size: 23px; }
+.concept--management .stage-detail { font-size: 17px; }
+.concept--management .center-label { font-size: 22px; }
 .output-label, .output-detail { fill: var(--color-navy); font-family: var(--font-sans); text-anchor: middle; }
 .output-label { font-size: 20px; font-weight: 800; }
 .output-detail { font-size: 16px; font-weight: 600; }
