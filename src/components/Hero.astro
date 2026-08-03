@@ -48,8 +48,8 @@ const heroClass = [
       </div>
     </div>
     {showVisual && (
-      <div class={`hero__visual ${visualVariant === "hero-control" ? "hero__visual--control" : "visual-panel"}`}>
-        <ConceptDiagram variant={visualVariant} title="Conceptual advisory diagram showing AI activity moving into visibility, governance and control" />
+      <div class={`hero__visual hero__visual--${visualVariant}`}>
+        <ConceptDiagram variant={visualVariant} tone="dark" title="Conceptual advisory diagram showing AI activity moving into visibility, governance and control" />
       </div>
     )}
   </div>
@@ -127,7 +127,11 @@ const heroClass = [
     align-items: center;
   }
 
-  .hero__visual--control {
+  .hero__visual--hero-control,
+  .hero__visual--risk-evidence,
+  .hero__visual--management,
+  .hero__visual--workflow,
+  .hero__visual--about {
     min-height: 350px;
     padding: 0.5rem 0;
   }

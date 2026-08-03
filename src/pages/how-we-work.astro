@@ -44,7 +44,7 @@ const description =
           lead="The work is designed to strengthen executive judgment and durable operating control, not simply introduce more technology."
         />
       </div>
-      <div class="grid grid--3">
+      <div class="grid grid--3 principles-grid">
       {[
         ["Human accountability", "Decision rights, approval boundaries and escalation paths are designed into the operating model."],
         ["Evidence discipline", "Claims, findings and recommendations are tied to reviewable evidence and leadership-ready decisions."],
@@ -67,7 +67,9 @@ const description =
 </BaseLayout>
 
 <style>
-  .principle-card .card__body { display: grid; grid-template-rows: 3.1rem auto; }
+  .principles-grid { align-items: stretch; }
+  .principle-card { min-height: 21rem; }
+  .principle-card .card__body { display: grid; grid-template-rows: 4rem minmax(0, 1fr); height: 100%; }
   .principle-card h3 { margin: 0; }
   .principle-card p { margin: 0; }
   @media (max-width: 880px) { .principle-card .card__body { grid-template-rows: auto auto; gap: 0.7rem; } }
