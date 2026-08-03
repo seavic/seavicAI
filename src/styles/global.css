@@ -327,6 +327,69 @@ p {
   background: var(--color-white);
 }
 
+/* Critical hero and diagram presentation stays available even if a route-level CSS asset is stale. */
+.hero {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.hero__copy { max-width: 900px; }
+.hero__copy h1 { margin-bottom: 1rem; color: var(--color-white); font-size: clamp(3rem, 5vw, 4.5rem); }
+.hero__copy .lead, .hero__copy p { color: #dce8ea; }
+.hero--solo .hero__grid { grid-template-columns: 1fr; }
+.hero--solo .hero__copy { max-width: 980px; }
+.hero--compact .hero__copy h1 { font-size: clamp(2.4rem, 4vw, 3.4rem); }
+.hero__copy .lead { margin-bottom: 1.5rem; }
+.hero .button { border-color: var(--color-white); background: var(--color-white); color: var(--color-navy); }
+.hero .button--secondary { background: transparent; color: var(--color-white); }
+.hero__visual { min-width: 0; min-height: 280px; display: flex; align-items: center; }
+.hero__visual--hero-control, .hero__visual--risk-evidence, .hero__visual--management, .hero__visual--workflow, .hero__visual--about, .hero__visual--contact { min-height: 350px; padding: 0.5rem 0; }
+
+.concept { margin: 0; min-width: 0; }
+.concept__desktop-art { min-width: 0; }
+.concept__desktop-art svg { width: 100%; height: auto; display: block; overflow: visible; }
+.signal, .track, .track-soft, .loop { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 4 9; opacity: 0.78; }
+.track-soft { opacity: 0.38; }
+.track-arrow, .loop-arrow, .loop-link, .loop-link-arrow, .outcome-rail, .workflow-line, .approval-gate { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.source-dot, .control-core, .approval-core { fill: var(--color-teal); }
+.source-box, .node, .hub, .workflow-box, .approval-gate { fill: var(--color-white); stroke: var(--color-teal); stroke-width: 3; }
+.source-mark, .node-mark, .hub-mark, .workflow-mark, .outcome-mark { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.node--filled, .workflow-box--teal { fill: var(--color-teal); }
+.node-mark--paper, .workflow-mark--paper { stroke: var(--color-white); }
+.control-halo { fill: rgba(8, 131, 141, 0.14); }
+.control-ring { fill: rgba(8, 131, 141, 0.1); stroke: var(--color-teal); stroke-width: 3; }
+.control-ring-inner, .hub-inner { fill: none; stroke: var(--color-teal); stroke-width: 3; }
+.outcome, .output-card { fill: rgba(8, 131, 141, 0.12); stroke: var(--color-teal); stroke-width: 3; }
+.label, .callout, .center-label, .stage-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 23px; font-weight: 800; text-anchor: middle; }
+.callout { font-size: 20px; font-weight: 600; text-anchor: start; }
+.center-label { font-size: 20px; }
+.stage-label { font-size: 19px; }
+.stage-detail { font-size: 14px; font-weight: 600; }
+.output-label, .output-detail { fill: var(--color-navy); font-family: var(--font-sans); text-anchor: middle; }
+.output-label { font-size: 20px; font-weight: 800; }
+.output-detail { font-size: 16px; font-weight: 600; }
+.workflow-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 20px; font-weight: 800; text-anchor: middle; }
+.workflow-label--small { font-size: 18px; }
+.label--light { fill: var(--color-white); }
+.concept--on-dark .signal, .concept--on-dark .track, .concept--on-dark .track-soft, .concept--on-dark .loop, .concept--on-dark .track-arrow, .concept--on-dark .loop-arrow, .concept--on-dark .loop-link, .concept--on-dark .loop-link-arrow, .concept--on-dark .outcome-rail, .concept--on-dark .workflow-line, .concept--on-dark .approval-gate { stroke: #79d7db; }
+.concept--on-dark .source-dot, .concept--on-dark .control-core, .concept--on-dark .approval-core { fill: #79d7db; }
+.concept--on-dark .source-box, .concept--on-dark .node, .concept--on-dark .hub, .concept--on-dark .workflow-box, .concept--on-dark .approval-gate { fill: rgba(255, 255, 255, 0.04); stroke: #79d7db; }
+.concept--on-dark .node--filled, .concept--on-dark .workflow-box--teal { fill: var(--color-teal); }
+.concept--on-dark .source-mark, .concept--on-dark .node-mark, .concept--on-dark .hub-mark, .concept--on-dark .workflow-mark, .concept--on-dark .outcome-mark { stroke: #79d7db; }
+.concept--on-dark .node-mark--paper, .concept--on-dark .workflow-mark--paper { stroke: var(--color-white); }
+.concept--on-dark .control-halo, .concept--on-dark .outcome, .concept--on-dark .output-card { fill: rgba(121, 215, 219, 0.12); }
+.concept--on-dark .control-ring, .concept--on-dark .control-ring-inner, .concept--on-dark .hub-inner, .concept--on-dark .outcome, .concept--on-dark .output-card { stroke: #79d7db; }
+.concept--on-dark .label, .concept--on-dark .callout, .concept--on-dark .center-label, .concept--on-dark .stage-label, .concept--on-dark .workflow-label, .concept--on-dark .output-label, .concept--on-dark .output-detail { fill: var(--color-white); }
+.concept__mobile-summary { display: none; }
+
 @media (max-width: 1180px) {
   .grid--4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -347,6 +410,15 @@ p {
   }
 }
 
+@media (max-width: 920px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__visual { min-height: auto; }
+}
+
+@media (min-width: 1280px) {
+  .hero__grid { grid-template-columns: minmax(0, 0.93fr) minmax(500px, 1.07fr); gap: clamp(1.5rem, 3vw, 3rem); }
+}
+
 @media (max-width: 560px) {
   .grid--4,
   .grid--buyer {
@@ -361,6 +433,15 @@ p {
   .control-map__row {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 760px) {
+  .concept__desktop-art { display: none; }
+  .concept__mobile-summary { display: grid; gap: 0.7rem; padding: 0; margin: 0; list-style: none; }
+  .concept__mobile-summary li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 0.8rem; align-items: center; min-width: 0; color: var(--color-ink); font-weight: 750; }
+  .concept__mobile-summary li > span:first-child { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-teal); border-radius: 50%; color: var(--color-navy); font-size: 0.85rem; }
+  .concept--on-dark .concept__mobile-summary li { color: var(--color-white); }
+  .concept--on-dark .concept__mobile-summary li > span:first-child { border-color: #79d7db; color: var(--color-white); }
 }
 
 @media (prefers-reduced-motion: reduce) {
