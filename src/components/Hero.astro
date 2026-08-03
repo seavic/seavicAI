@@ -48,7 +48,7 @@ const heroClass = [
       </div>
     </div>
     {showVisual && (
-      <div class="visual-panel hero__visual">
+      <div class={`hero__visual ${visualVariant === "hero-control" ? "hero__visual--control" : "visual-panel"}`}>
         <ConceptDiagram variant={visualVariant} title="Conceptual advisory diagram showing AI activity moving into visibility, governance and control" />
       </div>
     )}
@@ -125,6 +125,11 @@ const heroClass = [
     min-height: 280px;
     display: flex;
     align-items: center;
+  }
+
+  .hero__visual--control {
+    min-height: 350px;
+    padding: 0.5rem 0;
   }
 
   .hero__visual :global(.concept__flow::before) {

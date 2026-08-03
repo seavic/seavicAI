@@ -50,7 +50,7 @@ const description =
         ["Evidence discipline", "Claims, findings and recommendations are tied to reviewable evidence and leadership-ready decisions."],
         ["Technology in service of the client", "Technology may accelerate delivery, but it does not replace advisory judgment or the client relationship."]
       ].map(([title, copy]) => (
-        <article class="card"><div class="card__body"><h3>{title}</h3><p>{copy}</p></div></article>
+        <article class="card principle-card"><div class="card__body"><h3>{title}</h3><p>{copy}</p></div></article>
       ))}
       </div>
     </div>
@@ -65,3 +65,10 @@ const description =
 
   <CTASection showSecondary={false} />
 </BaseLayout>
+
+<style>
+  .principle-card .card__body { display: grid; grid-template-rows: 3.1rem auto; }
+  .principle-card h3 { margin: 0; }
+  .principle-card p { margin: 0; }
+  @media (max-width: 880px) { .principle-card .card__body { grid-template-rows: auto auto; gap: 0.7rem; } }
+</style>

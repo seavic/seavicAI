@@ -13,7 +13,7 @@ interface Props {
 }
 
 const diagrams = {
-  "hero-control": ["Fragmented AI activity", "Visibility", "Governance", "Control"],
+  "hero-control": ["Fragmented AI use and tools", "Visibility", "Governance", "Control"],
   offerings: ["Secure", "Manage", "Transform"],
   journey: ["Diagnose", "Govern", "Implement", "Transform", "Manage"],
   "risk-evidence": ["AI use", "Ownership", "Risk controls", "Reviewable evidence"],
@@ -25,82 +25,105 @@ const diagrams = {
 
 const { variant, title = "Conceptual operating-model diagram" } = Astro.props;
 const steps = diagrams[variant];
-const isLoop = variant === "management" || variant === "about";
-const isHeroControl = variant === "hero-control";
 ---
 
 <figure class={`concept concept--${variant}`} aria-labelledby={`${variant}-diagram-title`}>
   <figcaption id={`${variant}-diagram-title`} class="sr-only">{title}</figcaption>
-  <div class="concept__canvas">
-    <svg class="concept__art" viewBox="0 0 1000 180" aria-hidden="true" focusable="false">
-      {isHeroControl ? (
-        <>
-          <path class="concept__signal" d="M110 38C260 10 390 52 520 87" />
-          <path class="concept__signal" d="M118 92C250 90 380 94 520 90" />
-          <path class="concept__signal" d="M110 140C255 168 382 128 520 96" />
-          <circle class="concept__signal-dot" cx="112" cy="38" r="7" />
-          <circle class="concept__signal-dot" cx="180" cy="63" r="5" />
-          <circle class="concept__signal-dot" cx="122" cy="120" r="5" />
-          <circle class="concept__signal-dot" cx="230" cy="132" r="7" />
-          <circle class="concept__signal-dot" cx="310" cy="42" r="5" />
-          <circle class="concept__control-ring" cx="650" cy="90" r="58" />
-          <circle class="concept__control-ring-inner" cx="650" cy="90" r="38" />
-          <circle class="concept__control-core" cx="650" cy="90" r="10" />
-          <path class="concept__control-link" d="M716 90H858M858 54v72M858 54h34M858 90h34M858 126h34" />
-        </>
-      ) : isLoop ? (
-        <>
-          <path class="concept__loop" d="M500 24C720 24 845 68 845 90C845 132 655 156 500 156C345 156 155 132 155 90C155 48 280 24 500 24Z" />
-          <path class="concept__loop-arrow" d="M838 77l18 14-22 7" />
-          <circle class="concept__hub" cx="500" cy="90" r="28" />
-          <path class="concept__hub-mark" d="M487 90h26M500 77v26" />
-        </>
-      ) : (
-        <>
-          <path class="concept__path" d="M110 90H890" />
-          <path class="concept__path-arrow" d="M878 78l16 12-16 12" />
-          <circle class="concept__path-dot" cx="110" cy="90" r="7" />
-          <circle class="concept__path-dot" cx="890" cy="90" r="7" />
-        </>
-      )}
-    </svg>
-    <ol class="concept__flow">
-      {steps.map((step, index) => (
-        <li class="concept__item">
-          <span class="concept__marker">{String(index + 1).padStart(2, "0")}</span>
-          <span class="concept__label">{step}</span>
-        </li>
-      ))}
-    </ol>
+  <div class="concept__desktop-art" aria-hidden="true">
+    {variant === "hero-control" && (
+      <svg viewBox="0 0 1000 440" focusable="false">
+        <path class="signal" d="M92 106C260 46 390 102 536 198M104 220C280 220 396 216 536 216M96 326C256 390 408 306 536 234" />
+        <circle class="source-dot" cx="106" cy="104" r="10" /><circle class="source-dot" cx="184" cy="152" r="7" /><circle class="source-dot" cx="144" cy="272" r="8" /><circle class="source-dot" cx="246" cy="318" r="10" /><circle class="source-dot" cx="312" cy="114" r="8" /><circle class="source-dot" cx="360" cy="254" r="7" />
+        <rect class="source-box" x="70" y="70" width="72" height="72" rx="12" /><path class="source-mark" d="M91 106h30M106 91v30" />
+        <rect class="source-box" x="204" y="282" width="72" height="72" rx="12" /><path class="source-mark" d="M224 330l12-18 18 18" />
+        <circle class="control-halo" cx="650" cy="216" r="122" /><circle class="control-ring" cx="650" cy="216" r="92" /><circle class="control-ring-inner" cx="650" cy="216" r="64" /><circle class="control-core" cx="650" cy="216" r="16" />
+        <path class="outcome-rail" d="M780 216H884M884 116v204M884 116h36M884 184h36M884 252h36M884 320h36" />
+        <text class="label label--light" x="98" y="404">Fragmented AI use and tools</text><text class="label label--light" x="572" y="404">Visibility · Governance · Control</text>
+        <text class="callout label--light" x="930" y="122">Reduce risk</text><text class="callout label--light" x="930" y="190">Build accountability</text><text class="callout label--light" x="930" y="258">Strengthen governance</text><text class="callout label--light" x="930" y="326">Drive outcomes</text>
+      </svg>
+    )}
+    {variant === "risk-evidence" && (
+      <svg viewBox="0 0 1000 440" focusable="false">
+        <path class="track" d="M154 295C310 82 632 82 846 178" /><path class="track-arrow" d="M830 158l32 22-35 14" />
+        <path class="track-soft" d="M160 295C332 378 632 372 846 178" />
+        <circle class="node" cx="156" cy="295" r="54" /><path class="node-mark" d="M156 258l28 10v24c0 24-17 38-28 45-11-7-28-21-28-45v-24zM156 278v38" />
+        <circle class="node" cx="374" cy="152" r="54" /><path class="node-mark" d="M349 152h50M374 127v50" />
+        <circle class="node" cx="614" cy="132" r="54" /><path class="node-mark" d="M590 145l16 16 33-38" />
+        <circle class="node node--filled" cx="846" cy="178" r="62" /><path class="node-mark node-mark--paper" d="M822 178h48M846 154v48" />
+        <text class="label" x="115" y="382">AI use</text><text class="label" x="326" y="105">Ownership</text><text class="label" x="556" y="86">Risk controls</text><text class="label" x="765" y="290">Reviewable evidence</text>
+      </svg>
+    )}
+    {variant === "management" && (
+      <svg viewBox="0 0 1000 440" focusable="false">
+        <path class="loop" d="M296 136C420 52 610 52 734 136C822 196 822 274 734 326C610 400 420 400 296 326C208 274 208 196 296 136Z" /><path class="loop-arrow" d="M725 315l28 12-18 24" />
+        <circle class="hub" cx="515" cy="231" r="92" /><circle class="hub-inner" cx="515" cy="231" r="60" /><path class="hub-mark" d="M485 231h60M515 201v60" />
+        <circle class="node" cx="316" cy="150" r="43" /><circle class="node" cx="700" cy="150" r="43" /><circle class="node" cx="700" cy="312" r="43" /><circle class="node" cx="316" cy="312" r="43" />
+        <text class="label" x="266" y="92">Register</text><text class="label" x="656" y="92">Observe</text><text class="label" x="665" y="388">Govern</text><text class="label" x="274" y="388">Control</text><text class="center-label" x="515" y="238">AI management</text>
+      </svg>
+    )}
+    {variant === "workflow" && (
+      <svg viewBox="0 0 1000 440" focusable="false">
+        <path class="workflow-line" d="M174 218H312M456 218H548M684 218H810" /><path class="track-arrow" d="M794 198l32 20-32 20" />
+        <rect class="workflow-box" x="52" y="144" width="124" height="148" rx="16" /><path class="workflow-mark" d="M86 190h56M86 218h56M86 246h36" />
+        <rect class="workflow-box workflow-box--teal" x="312" y="144" width="144" height="148" rx="16" /><path class="workflow-mark workflow-mark--paper" d="M350 232l26-28 20 20 30-38" />
+        <path class="approval-gate" d="M556 160h120v116H556zM576 194h80M616 166v102" /><circle class="approval-core" cx="616" cy="218" r="22" />
+        <circle class="outcome" cx="858" cy="218" r="72" /><path class="outcome-mark" d="M822 230l23 22 48-54" />
+        <text class="label" x="62" y="346">Current work</text><text class="label" x="296" y="346">AI-supported activity</text><text class="label" x="540" y="346">Human approval</text><text class="label" x="566" y="374">or exception</text><text class="label" x="790" y="346">Measured outcome</text>
+      </svg>
+    )}
+    {variant === "about" && (
+      <svg viewBox="0 0 1000 440" focusable="false">
+        <path class="loop" d="M292 126C414 42 618 42 740 126C834 192 834 278 740 332C618 404 414 404 292 332C198 278 198 192 292 126Z" />
+        <circle class="hub" cx="516" cy="230" r="98" /><circle class="hub-inner" cx="516" cy="230" r="64" /><path class="hub-mark" d="M484 230h64M516 198v64" />
+        <circle class="node" cx="304" cy="138" r="44" /><circle class="node" cx="728" cy="138" r="44" /><circle class="node" cx="728" cy="322" r="44" /><circle class="node" cx="304" cy="322" r="44" />
+        <text class="label" x="252" y="76">Strategy</text><text class="label" x="678" y="76">Security</text><text class="label" x="660" y="404">Transformation</text><text class="label" x="244" y="404">Governance</text><text class="center-label" x="516" y="237">SeaVic advisory</text>
+      </svg>
+    )}
+    {!["hero-control", "risk-evidence", "management", "workflow", "about"].includes(variant) && (
+      <svg viewBox="0 0 1000 440" focusable="false">
+        <path class="track" d="M150 220H850" /><path class="track-arrow" d="M834 200l32 20-32 20" />
+        {steps.map((_, index) => <circle class="node" cx={150 + index * (700 / Math.max(steps.length - 1, 1))} cy="220" r="48" />)}
+      </svg>
+    )}
   </div>
+  <ol class="concept__mobile-summary">
+    {steps.map((step, index) => <li><span>{String(index + 1).padStart(2, "0")}</span><span>{step}</span></li>)}
+  </ol>
 </figure>
 
 <style>
   .concept { margin: 0; min-width: 0; }
-  .concept__canvas { position: relative; min-width: 0; padding-block: 1rem 0.25rem; }
-  .concept__art { position: absolute; inset: 0 0 auto; width: 100%; height: 118px; overflow: visible; }
-  .concept__path, .concept__loop, .concept__signal { fill: none; stroke: var(--color-teal); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 3 7; opacity: 0.72; }
-  .concept__path-arrow, .concept__loop-arrow { fill: none; stroke: var(--color-teal); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .concept__path-dot, .concept__hub { fill: var(--color-white); stroke: var(--color-teal); stroke-width: 2; }
-  .concept__hub-mark { fill: none; stroke: var(--color-teal); stroke-width: 2; stroke-linecap: round; }
-  .concept__signal-dot { fill: var(--color-teal); }
-  .concept__control-ring { fill: rgba(8, 131, 141, 0.08); stroke: var(--color-teal); stroke-width: 2; }
-  .concept__control-ring-inner { fill: none; stroke: var(--color-teal); stroke-width: 2; }
-  .concept__control-core { fill: var(--color-teal); }
-  .concept__control-link { fill: none; stroke: var(--color-teal); stroke-width: 2; opacity: 0.72; }
-  .concept__flow { display: grid; grid-template-columns: repeat(var(--concept-count, 4), minmax(0, 1fr)); gap: clamp(0.5rem, 1.5vw, 1rem); padding: 0; margin: 0; list-style: none; }
-  .concept--offerings .concept__flow, .concept--contact .concept__flow { --concept-count: 3; }
-  .concept--journey .concept__flow { --concept-count: 5; }
-  .concept__item { position: relative; z-index: 1; display: grid; justify-items: center; gap: 0.75rem; min-width: 0; text-align: center; }
-  .concept__marker { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-teal); border-radius: 50%; background: var(--color-white); color: var(--color-navy); font-weight: 800; line-height: 1; }
-  .concept__label { display: grid; min-width: 0; min-height: 3.2em; place-items: start center; color: var(--color-ink); font-size: clamp(0.78rem, 1.3vw, 0.95rem); font-weight: 800; line-height: 1.25; overflow-wrap: anywhere; }
-  .concept--management .concept__label, .concept--about .concept__label { color: var(--color-navy); }
+  .concept__desktop-art { min-width: 0; }
+  .concept__desktop-art svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .signal, .track, .track-soft, .loop { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 4 9; opacity: 0.78; }
+  .track-soft { opacity: 0.38; }
+  .track-arrow, .loop-arrow, .outcome-rail, .workflow-line, .approval-gate { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .source-dot, .control-core, .approval-core { fill: var(--color-teal); }
+  .source-box, .node, .hub, .workflow-box, .approval-gate { fill: var(--color-white); stroke: var(--color-teal); stroke-width: 3; }
+  .source-mark, .node-mark, .hub-mark, .workflow-mark, .outcome-mark { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .node--filled, .workflow-box--teal { fill: var(--color-teal); }
+  .node-mark--paper, .workflow-mark--paper { stroke: var(--color-white); }
+  .control-halo { fill: rgba(8, 131, 141, 0.14); }
+  .control-ring { fill: rgba(8, 131, 141, 0.1); stroke: var(--color-teal); stroke-width: 3; }
+  .control-ring-inner, .hub-inner { fill: none; stroke: var(--color-teal); stroke-width: 3; }
+  .outcome { fill: rgba(8, 131, 141, 0.12); stroke: var(--color-teal); stroke-width: 3; }
+  .label, .callout, .center-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 23px; font-weight: 800; text-anchor: middle; }
+  .callout { font-size: 20px; font-weight: 600; text-anchor: start; }
+  .center-label { font-size: 18px; font-weight: 700; }
+  .label--light { fill: var(--color-white); }
+  .concept--hero-control .signal, .concept--hero-control .outcome-rail { stroke: #79d7db; }
+  .concept--hero-control .source-dot, .concept--hero-control .control-core { fill: #79d7db; }
+  .concept--hero-control .source-box, .concept--hero-control .control-ring, .concept--hero-control .control-ring-inner { stroke: #79d7db; }
+  .concept--hero-control .source-box { fill: rgba(255, 255, 255, 0.06); }
+  .concept--hero-control .source-mark { stroke: #79d7db; }
+  .concept--hero-control .control-halo { fill: rgba(121, 215, 219, 0.12); }
+  .concept__mobile-summary { display: none; }
   @media (max-width: 760px) {
-    .concept__canvas { padding: 0; }
-    .concept__art { display: none; }
-    .concept__flow { grid-template-columns: 1fr; gap: 0.65rem; }
-    .concept__item { grid-template-columns: 42px minmax(0, 1fr); justify-items: start; align-items: center; gap: 0.85rem; padding: 0.35rem 0; text-align: left; }
-    .concept__item:not(:last-child)::after { position: absolute; left: 20px; top: 52px; bottom: -0.65rem; width: 2px; background: var(--color-border); content: ""; }
-    .concept__label { min-height: auto; place-items: center start; font-size: 0.95rem; text-align: left; }
+    .concept__desktop-art { display: none; }
+    .concept__mobile-summary { display: grid; gap: 0.7rem; padding: 0; margin: 0; list-style: none; }
+    .concept__mobile-summary li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 0.8rem; align-items: center; min-width: 0; color: var(--color-ink); font-weight: 750; }
+    .concept__mobile-summary li > span:first-child { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-teal); border-radius: 50%; color: var(--color-navy); font-size: 0.85rem; }
+    .concept--hero-control .concept__mobile-summary li { color: var(--color-white); }
+    .concept--hero-control .concept__mobile-summary li > span:first-child { border-color: #79d7db; color: var(--color-white); }
   }
 </style>
