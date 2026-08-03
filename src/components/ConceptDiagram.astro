@@ -63,14 +63,14 @@ const steps = diagrams[variant];
     {variant === "management" && (
       <svg viewBox="0 0 1000 440" focusable="false">
         <defs><marker id="management-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="arrowhead" d="M0 0L10 5L0 10z" /></marker></defs>
-        <path class="loop-link" d="M258 120C370 54 630 54 742 120" marker-end="url(#management-arrow)" /><path class="loop-link" d="M800 178V252" marker-end="url(#management-arrow)" /><path class="loop-link" d="M742 310C630 386 370 386 258 310" marker-end="url(#management-arrow)" /><path class="loop-link" d="M200 252V178" marker-end="url(#management-arrow)" />
-        <circle class="hub" cx="500" cy="220" r="88" /><circle class="hub-inner" cx="500" cy="220" r="56" />
-        <circle class="node" cx="200" cy="120" r="58" /><path class="node-mark" d="M176 100h48M176 120h48M176 140h34" />
-        <circle class="node" cx="800" cy="120" r="58" /><path class="node-mark" d="M772 120c12-19 44-19 56 0-12 19-44 19-56 0zM800 120h1" />
-        <circle class="node" cx="800" cy="310" r="58" /><path class="node-mark" d="M776 316l18 18 34-42" />
-        <circle class="node" cx="200" cy="310" r="58" /><path class="node-mark" d="M200 280v60M170 310h60" />
-        <text class="stage-label" x="200" y="24">Register<tspan class="stage-detail" x="200" dy="22">inventory and owner</tspan></text>
-        <text class="stage-label" x="800" y="24">Observe<tspan class="stage-detail" x="800" dy="22">usage, cost and risk</tspan></text>
+        <path class="loop-link" d="M258 140L340 80H660L742 140" marker-end="url(#management-arrow)" /><path class="loop-link" d="M800 198V242" marker-end="url(#management-arrow)" /><path class="loop-link" d="M742 300L660 360H340L258 300" marker-end="url(#management-arrow)" /><path class="loop-link" d="M200 242V198" marker-end="url(#management-arrow)" />
+        <circle class="hub" cx="500" cy="220" r="78" /><circle class="hub-inner" cx="500" cy="220" r="48" />
+        <circle class="node" cx="200" cy="140" r="58" /><path class="node-mark" d="M176 120h48M176 140h48M176 160h34" />
+        <circle class="node" cx="800" cy="140" r="58" /><path class="node-mark" d="M772 140c12-19 44-19 56 0-12 19-44 19-56 0zM800 140h1" />
+        <circle class="node" cx="800" cy="300" r="58" /><path class="node-mark" d="M776 306l18 18 34-42" />
+        <circle class="node" cx="200" cy="300" r="58" /><path class="node-mark" d="M200 270v60M170 300h60" />
+        <text class="stage-label" x="200" y="28">Register<tspan class="stage-detail" x="200" dy="22">inventory and owner</tspan></text>
+        <text class="stage-label" x="800" y="28">Observe<tspan class="stage-detail" x="800" dy="22">usage, cost and risk</tspan></text>
         <text class="stage-label" x="800" y="406">Govern<tspan class="stage-detail" x="800" dy="23">policy and decision rights</tspan></text>
         <text class="stage-label" x="200" y="406">Control<tspan class="stage-detail" x="200" dy="23">approvals and limits</tspan></text>
         <text class="center-label" x="500" y="214">Executive AI</text><text class="center-label" x="500" y="243">Control Plane</text>
