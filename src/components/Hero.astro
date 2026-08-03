@@ -41,7 +41,7 @@ const visualTitles = {
   management: "Register, observe, govern and control enterprise AI through an executive AI control plane.",
   workflow: "Map the current workflow, design AI-supported work, set human approval boundaries and measure the operating outcome.",
   about: "SeaVic connects strategy, security, governance and transformation through senior-led advisory.",
-  contact: "A SeaVic Discovery Call connects an operating issue to a useful next step."
+  contact: "Share the operating issue, clarify the leadership decision and agree a useful next step on a SeaVic Discovery Call."
 } as const;
 ---
 
@@ -134,6 +134,7 @@ const visualTitles = {
     min-height: 280px;
     display: flex;
     align-items: center;
+    min-width: 0;
   }
 
   .hero__visual--hero-control,
@@ -141,6 +142,11 @@ const visualTitles = {
   .hero__visual--management,
   .hero__visual--workflow,
   .hero__visual--about {
+    min-height: 350px;
+    padding: 0.5rem 0;
+  }
+
+  .hero__visual--contact {
     min-height: 350px;
     padding: 0.5rem 0;
   }
@@ -156,6 +162,18 @@ const visualTitles = {
 
     .hero__visual {
       min-height: auto;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .hero__grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+      gap: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    .hero__visual :global(.concept) {
+      width: 120%;
+      max-width: none;
     }
   }
 </style>

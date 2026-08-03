@@ -21,7 +21,7 @@ const diagrams = {
   management: ["Register inventory and owner", "Observe usage, cost and risk", "Govern policy and decision rights", "Control approvals and limits"],
   workflow: ["Map current workflow", "Design AI-supported work", "Set human approval and exception boundaries", "Measure operating outcome"],
   about: ["Strategy", "Security", "Governance", "Transformation"],
-  contact: ["Operating issue", "Discovery Call", "Useful next step"]
+  contact: ["Share the operating issue", "Clarify the leadership decision", "Agree a useful next step"]
 } as const;
 
 const { variant, title = "Conceptual operating-model diagram", tone = "light" } = Astro.props;
@@ -95,7 +95,18 @@ const steps = diagrams[variant];
         <text class="label" x="252" y="76">Strategy</text><text class="label" x="678" y="76">Security</text><text class="label" x="660" y="404">Transformation</text><text class="label" x="244" y="404">Governance</text><text class="center-label" x="516" y="237">SeaVic advisory</text>
       </svg>
     )}
-    {!["hero-control", "risk-evidence", "management", "workflow", "about"].includes(variant) && (
+    {variant === "contact" && (
+      <svg viewBox="0 0 1000 440" focusable="false">
+        <path class="track" d="M142 220H836" /><path class="track-arrow" d="M818 200l32 20-32 20" />
+        <circle class="node" cx="164" cy="220" r="66" /><path class="node-mark" d="M130 194h68v45h-38l-20 18v-18h-10zM150 216h28M150 232h18" />
+        <circle class="node node--filled" cx="500" cy="220" r="72" /><path class="node-mark node-mark--paper" d="M468 190h64v56h-64zM482 206h36M482 224h24" />
+        <circle class="outcome" cx="836" cy="220" r="72" /><path class="outcome-mark" d="M800 232l24 22 48-56" />
+        <text class="stage-label" x="164" y="338">Share the<tspan x="164" dy="26">operating issue</tspan></text>
+        <text class="stage-label" x="500" y="338">Clarify the leadership<tspan x="500" dy="26">decision</tspan></text>
+        <text class="stage-label" x="836" y="338">Agree a useful<tspan x="836" dy="26">next step</tspan></text>
+      </svg>
+    )}
+    {!["hero-control", "risk-evidence", "management", "workflow", "about", "contact"].includes(variant) && (
       <svg viewBox="0 0 1000 440" focusable="false">
         <path class="track" d="M150 220H850" /><path class="track-arrow" d="M834 200l32 20-32 20" />
         {steps.map((_, index) => <circle class="node" cx={150 + index * (700 / Math.max(steps.length - 1, 1))} cy="220" r="48" />)}
