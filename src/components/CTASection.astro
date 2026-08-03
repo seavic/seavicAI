@@ -4,11 +4,13 @@ import { localPath } from "../lib/urls";
 interface Props {
   title?: string;
   lead?: string;
+  showSecondary?: boolean;
 }
 
 const {
   title = "Start with the AI decision or operating issue in front of you.",
-  lead = "A SeaVic Discovery Call is a focused conversation about what is happening, what leadership needs to decide and whether there is a useful next step for SeaVic to support."
+  lead = "A SeaVic Discovery Call is a focused conversation about what is happening, what leadership needs to decide and whether there is a useful next step for SeaVic to support.",
+  showSecondary = true
 } = Astro.props;
 ---
 
@@ -20,8 +22,8 @@ const {
       <p class="lead">{lead}</p>
     </div>
     <div class="button-row">
-      <a class="button button--secondary" href={localPath("/contact/")}>Book a SeaVic Discovery Call</a>
-      <a class="button" href={localPath("/how-we-work/")}>See How We Work</a>
+      <a class="button button--on-dark" href={localPath("/contact/")}>Book a SeaVic Discovery Call</a>
+      {showSecondary && <a class="button button--ghost" href={localPath("/how-we-work/")}>See How We Work</a>}
     </div>
   </div>
 </section>
@@ -36,6 +38,26 @@ const {
 
   .cta .button {
     border-color: var(--color-white);
+  }
+
+  .button--on-dark {
+    background: var(--color-white);
+    color: var(--color-navy);
+  }
+
+  .button--on-dark:hover {
+    background: var(--color-blue-gray);
+    color: var(--color-navy);
+  }
+
+  .button--ghost {
+    background: transparent;
+    color: var(--color-white);
+  }
+
+  .button--ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-white);
   }
 
   @media (max-width: 780px) {

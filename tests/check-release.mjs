@@ -38,6 +38,11 @@ for (const [route, html] of [
   ["/contact/", readHtml("/contact/")]
 ]) {
   if (!html.includes('content="noindex,nofollow"')) failures.push(`${route}: missing staging noindex,nofollow`);
+  if (!html.includes('name="seavic-build-id"')) failures.push(`${route}: missing build identifier`);
+}
+
+if (home.indexOf("Does one of these situations sound familiar?") < home.indexOf("A service provider wants")) {
+  failures.push("Homepage contextual Discovery Call block must render after all five trigger cards.");
 }
 
 if (fs.existsSync(path.join(dist, "concepts"))) failures.push("Concept routes were built into dist.");

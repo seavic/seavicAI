@@ -1,7 +1,7 @@
 :root {
-  --color-navy: #1f3a56;
-  --color-teal: #0e7c86;
-  --color-blue-gray: #eaf3f4;
+  --color-navy: #01285a;
+  --color-teal: #08838d;
+  --color-blue-gray: #eef5f6;
   --color-gray: #595959;
   --color-light-gray: #f2f2f2;
   --color-white: #ffffff;
@@ -11,5 +11,7 @@
   --font-sans: Inter, Arial, Helvetica, sans-serif;
   --max-page: 1180px;
   --radius: 8px;
-  --space-section: clamp(3rem, 7vw, 6rem);
+  --space-compact: clamp(3rem, 5vw, 4rem);
+  --space-section: clamp(4.5rem, 7vw, 5.5rem);
+  --space-major: clamp(5.5rem, 8vw, 6.5rem);
 }

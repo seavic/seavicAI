@@ -16,6 +16,7 @@ const { title, description, path = "/", noindex = false } = Astro.props;
 const canonical = absoluteUrl(path);
 const fullTitle = title.includes("SeavicAI") ? title : `${title} | ${siteConfig.brandName}`;
 const shouldNoindex = noindex || siteConfig.flags.stageNoindex;
+const buildId = import.meta.env.PUBLIC_BUILD_ID || "act051-v16-2026-08-02";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -24,7 +25,7 @@ const structuredData = {
       "@type": "Organization",
       "@id": `${absoluteUrl("/")}#organization`,
       name: siteConfig.corporateName,
-      legalName: siteConfig.legalName,
+      alternateName: siteConfig.alternateName,
       url: absoluteUrl("/"),
       sameAs: [siteConfig.linkedInUrl]
     },
@@ -46,6 +47,7 @@ const structuredData = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="seavic-build-id" content={buildId} />
     {shouldNoindex && <meta name="robots" content="noindex,nofollow" />}
     {siteConfig.googleSiteVerification && <meta name="google-site-verification" content={siteConfig.googleSiteVerification} />}
     <link rel="canonical" href={canonical} />

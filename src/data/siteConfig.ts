@@ -1,7 +1,7 @@
 export const siteConfig = {
   siteUrl: "https://staging.seavicai.com",
-  legalName: "SeaVic Consulting LLC",
   corporateName: "SeaVic Consulting",
+  alternateName: "SeavicAI",
   brandName: "SeavicAI",
   marketingDomain: "SeavicAI.com",
   contactEmail: "hello@seavicai.com",

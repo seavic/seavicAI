@@ -1,0 +1,138 @@
+---
+interface Props {
+  variant:
+    | "hero-control"
+    | "offerings"
+    | "journey"
+    | "risk-evidence"
+    | "management"
+    | "workflow"
+    | "about"
+    | "contact";
+  title?: string;
+}
+
+const diagrams = {
+  "hero-control": ["Fragmented AI activity", "Visibility", "Governance", "Control"],
+  offerings: ["Secure", "Manage", "Transform"],
+  journey: ["Diagnose", "Govern", "Implement", "Transform", "Manage"],
+  "risk-evidence": ["AI use", "Ownership", "Risk controls", "Reviewable evidence"],
+  management: ["Register", "Observe", "Govern", "Control"],
+  workflow: ["Current work", "AI-supported activity", "Human approval or exception", "Measured outcome"],
+  about: ["Strategy", "Security", "Governance", "Transformation"],
+  contact: ["Operating issue", "Discovery Call", "Useful next step"]
+} as const;
+
+const { variant, title = "Conceptual operating-model diagram" } = Astro.props;
+const steps = diagrams[variant];
+---
+
+<figure class={`concept concept--${variant}`} aria-label={title}>
+  <div class="concept__flow">
+    {steps.map((step, index) => (
+      <div class="concept__item">
+        <span class="concept__marker">{String(index + 1).padStart(2, "0")}</span>
+        <span class="concept__label">{step}</span>
+      </div>
+    ))}
+  </div>
+</figure>
+
+<style>
+  .concept {
+    margin: 0;
+  }
+
+  .concept__flow {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--concept-count, 4), minmax(0, 1fr));
+    gap: clamp(0.85rem, 2vw, 1rem);
+  }
+
+  .concept--offerings .concept__flow,
+  .concept--contact .concept__flow {
+    --concept-count: 3;
+  }
+
+  .concept--journey .concept__flow {
+    --concept-count: 5;
+  }
+
+  .concept__flow::before {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    top: 20px;
+    height: 1px;
+    background: var(--color-border);
+    content: "";
+  }
+
+  .concept__item {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 0.75rem;
+    min-height: 120px;
+    padding: 0.25rem 0.35rem 0;
+    text-align: center;
+  }
+
+  .concept__marker {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-teal);
+    border-radius: 999px;
+    background: var(--color-white);
+    color: var(--color-navy);
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .concept__label {
+    display: flex;
+    min-height: 62px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 760px) {
+    .concept__flow {
+      grid-template-columns: 1fr;
+    }
+
+    .concept__flow::before {
+      left: 20px;
+      right: auto;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      height: auto;
+    }
+
+    .concept__item {
+      grid-template-columns: 40px minmax(0, 1fr);
+      justify-items: start;
+      align-items: center;
+      min-height: 68px;
+      text-align: left;
+    }
+
+    .concept__label {
+      width: 100%;
+      min-height: 52px;
+      justify-content: flex-start;
+    }
+  }
+</style>

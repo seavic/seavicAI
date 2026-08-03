@@ -10,15 +10,10 @@ import { siteConfig } from "../data/siteConfig";
       Send a short note about the AI decision, operating issue or governance question you want to clarify.
       Please do not include confidential, regulated or sensitive information.
     </p>
-    <p><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>
+    <p><a class="button" href={`mailto:${siteConfig.contactEmail}`}>Email {siteConfig.contactEmail}</a></p>
     {
       siteConfig.flags.enableBookingLink && siteConfig.bookingUrl && (
         <a class="button" href={siteConfig.bookingUrl}>Book a SeaVic Discovery Call</a>
-      )
-    }
-    {
-      !siteConfig.flags.enableContactForm && (
-        <p class="small">The contact form is disabled until the provider and privacy treatment are approved.</p>
       )
     }
   </div>

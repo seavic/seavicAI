@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ConceptDiagram from "../components/ConceptDiagram.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import OfferingCard from "../components/OfferingCard.astro";
-import MethodologySteps from "../components/MethodologySteps.astro";
 import EntryPathway from "../components/EntryPathway.astro";
 import CTASection from "../components/CTASection.astro";
 import {
@@ -61,7 +61,6 @@ import {
       />
       <div class="stack">
         {triggerIntro.slice(1).map((paragraph) => <p>{paragraph}</p>)}
-        <p>{discoveryCallPrompt}</p>
       </div>
     </div>
     <div class="container grid grid--buyer">
@@ -74,6 +73,13 @@ import {
         </article>
       ))}
     </div>
+    <div class="container contextual-cta">
+      <div>
+        <h3>Does one of these situations sound familiar?</h3>
+        <p>{discoveryCallPrompt.replace("Does one of these situations sound familiar? ", "")}</p>
+      </div>
+      <a class="button" href="/contact/">Book a SeaVic Discovery Call</a>
+    </div>
   </section>
 
   <section class="section">
@@ -85,6 +91,9 @@ import {
       />
       <div class="grid grid--3">
         {offerings.map((offering) => <OfferingCard {...offering} />)}
+      </div>
+      <div class="visual-panel offering-visual">
+        <ConceptDiagram variant="offerings" title="Conceptual relationship between SeaVic's Secure, Manage and Transform offerings" />
       </div>
     </div>
   </section>
@@ -116,7 +125,10 @@ import {
         title="Diagnose, govern, implement, transform and manage."
         lead="The firm-wide method connects evidence gathering, decision rights, controls, adoption and recurring executive visibility."
       />
-      <MethodologySteps />
+      <div class="visual-panel journey-overview">
+        <ConceptDiagram variant="journey" title="Compact overview of the SeaVic firm-wide journey" />
+        <a class="button" href="/how-we-work/">See How We Work</a>
+      </div>
     </div>
   </section>
 
@@ -167,3 +179,47 @@ import {
 
   <CTASection />
 </BaseLayout>
+
+<style>
+  .contextual-cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: clamp(2rem, 4vw, 2.5rem);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .contextual-cta h3,
+  .contextual-cta p {
+    margin-bottom: 0;
+  }
+
+  .offering-visual,
+  .journey-overview {
+    margin-top: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  .journey-overview {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .journey-overview .button {
+    justify-self: start;
+  }
+
+  @media (max-width: 760px) {
+    .contextual-cta {
+      grid-template-columns: 1fr;
+    }
+
+    .contextual-cta .button {
+      width: 100%;
+    }
+  }
+</style>

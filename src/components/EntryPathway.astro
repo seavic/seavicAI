@@ -13,12 +13,24 @@ import { entryPathway } from "../data/content";
 
 <style>
   .entry-pathway {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.75rem;
+    gap: clamp(1rem, 2vw, 1.25rem);
+  }
+
+  .entry-pathway::before {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 20px;
+    height: 1px;
+    background: var(--color-border);
+    content: "";
   }
 
   .entry-pathway__step {
+    position: relative;
     min-height: 130px;
     display: grid;
     align-content: start;
@@ -30,14 +42,15 @@ import { entryPathway } from "../data/content";
   }
 
   .entry-pathway span {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid var(--color-teal);
     border-radius: 50%;
-    background: var(--color-teal);
-    color: var(--color-white);
+    background: var(--color-white);
+    color: var(--color-navy);
     font-weight: 800;
   }
 
@@ -56,6 +69,15 @@ import { entryPathway } from "../data/content";
   @media (max-width: 560px) {
     .entry-pathway {
       grid-template-columns: 1fr;
+    }
+
+    .entry-pathway::before {
+      left: 20px;
+      right: auto;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      height: auto;
     }
   }
 </style>

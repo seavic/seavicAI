@@ -1,4 +1,5 @@
 ---
+import ConceptDiagram from "./ConceptDiagram.astro";
 import { localPath } from "../lib/urls";
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
   secondaryHref?: string;
   secondaryLabel?: string;
   showVisual?: boolean;
+  visualVariant?: "hero-control" | "risk-evidence" | "management" | "workflow" | "about" | "contact";
   size?: "default" | "compact";
 }
 
@@ -22,6 +24,7 @@ const {
   secondaryHref = "/how-we-work/",
   secondaryLabel = "See How We Work",
   showVisual = true,
+  visualVariant = "hero-control",
   size = "default"
 } = Astro.props;
 
@@ -45,29 +48,8 @@ const heroClass = [
       </div>
     </div>
     {showVisual && (
-      <div class="visual-panel hero__visual" aria-label="Enterprise AI control model diagram">
-        <div class="control-map">
-          <div class="control-map__row">
-            <div class="control-map__label">Use</div>
-            <div class="control-map__value">What AI is being used?</div>
-          </div>
-          <div class="control-map__row">
-            <div class="control-map__label">Risk</div>
-            <div class="control-map__value">What risk does it create?</div>
-          </div>
-          <div class="control-map__row">
-            <div class="control-map__label">Ownership</div>
-            <div class="control-map__value">Who owns it?</div>
-          </div>
-          <div class="control-map__row">
-            <div class="control-map__label">Cost</div>
-            <div class="control-map__value">What does it cost?</div>
-          </div>
-          <div class="control-map__row">
-            <div class="control-map__label">Value</div>
-            <div class="control-map__value">Does it create enough value to scale?</div>
-          </div>
-        </div>
+      <div class="visual-panel hero__visual">
+        <ConceptDiagram variant={visualVariant} title="Conceptual advisory diagram showing AI activity moving into visibility, governance and control" />
       </div>
     )}
   </div>
@@ -76,8 +58,8 @@ const heroClass = [
 <style>
   .hero {
     border-bottom: 1px solid var(--color-border);
-    background:
-      linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%);
+    background: var(--color-navy);
+    color: var(--color-white);
   }
 
   .hero__grid {
@@ -93,6 +75,13 @@ const heroClass = [
 
   .hero__copy h1 {
     margin-bottom: 1rem;
+    color: var(--color-white);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  .hero__copy .lead,
+  .hero__copy p {
+    color: #dce8ea;
   }
 
   .hero--solo .hero__grid {
@@ -104,17 +93,42 @@ const heroClass = [
   }
 
   .hero--compact .hero__copy h1 {
-    font-size: clamp(2.15rem, 4vw, 3.75rem);
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
   }
 
   .hero__copy .lead {
     margin-bottom: 1.5rem;
   }
 
+  .hero .button {
+    border-color: var(--color-white);
+    background: var(--color-white);
+    color: var(--color-navy);
+  }
+
+  .hero .button:hover {
+    background: var(--color-blue-gray);
+    color: var(--color-navy);
+  }
+
+  .hero .button--secondary {
+    background: transparent;
+    color: var(--color-white);
+  }
+
+  .hero .button--secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-white);
+  }
+
   .hero__visual {
-    min-height: 360px;
+    min-height: 280px;
     display: flex;
     align-items: center;
+  }
+
+  .hero__visual :global(.concept__flow::before) {
+    background: rgba(255, 255, 255, 0.28);
   }
 
   @media (max-width: 920px) {

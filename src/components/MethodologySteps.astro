@@ -14,15 +14,27 @@ import { methodSteps } from "../data/content";
 
 <style>
   .methodology {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.8rem;
+    gap: clamp(1rem, 2vw, 1.25rem);
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
+  .methodology::before {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 20px;
+    height: 1px;
+    background: var(--color-border);
+    content: "";
+  }
+
   .methodology li {
+    position: relative;
     min-height: 235px;
     padding: 1.1rem;
     border: 1px solid var(--color-border);
@@ -31,7 +43,15 @@ import { methodSteps } from "../data/content";
   }
 
   .methodology span {
-    color: var(--color-teal);
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-teal);
+    border-radius: 999px;
+    background: var(--color-white);
+    color: var(--color-navy);
     font-weight: 800;
   }
 
@@ -49,6 +69,15 @@ import { methodSteps } from "../data/content";
   @media (max-width: 560px) {
     .methodology {
       grid-template-columns: 1fr;
+    }
+
+    .methodology::before {
+      left: 20px;
+      right: auto;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      height: auto;
     }
   }
 </style>

@@ -8,8 +8,7 @@ import { localPath } from "../lib/urls";
   <div class="container site-footer__inner">
     <div>
       <a class="footer-brand" href={localPath("/")}>
-        <span>Seavic<span>AI</span></span>
-        <small>CONSULTING</small>
+        <img src={localPath("/brand/seavic-ai-consulting-horizontal.svg")} alt="SeavicAI Consulting" width="220" height="64" />
       </a>
       <p>
         Senior-led AI Governance and Management Advisory for enterprises, regulated and risk-sensitive organizations, business units, and selected technology service providers.
@@ -21,7 +20,7 @@ import { localPath } from "../lib/urls";
       ))}
     </nav>
     <p class="legal">
-      © {siteConfig.copyrightYear} {siteConfig.legalName}. All rights reserved.
+      © {siteConfig.copyrightYear} {siteConfig.corporateName}. All rights reserved.
     </p>
   </div>
 </footer>
@@ -42,26 +41,16 @@ import { localPath } from "../lib/urls";
 
   .footer-brand {
     display: inline-flex;
-    flex-direction: column;
-    color: var(--color-white);
+    padding: 0.45rem 0.55rem;
+    border-radius: var(--radius);
+    background: var(--color-white);
     text-decoration: none;
-    line-height: 1;
   }
 
-  .footer-brand span {
-    font-size: 1.45rem;
-    font-weight: 800;
-  }
-
-  .footer-brand span span,
-  .footer-brand small {
-    color: #bde4e8;
-  }
-
-  .footer-brand small {
-    margin-top: 0.2rem;
-    font-weight: 800;
-    letter-spacing: 0.22em;
+  .footer-brand img {
+    width: min(220px, 70vw);
+    height: auto;
+    display: block;
   }
 
   .site-footer p {

@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { siteConfig } from "../data/siteConfig";
 
-const description = "Privacy Notice shell for SeaVic Consulting LLC.";
+const description = "Privacy Notice shell for SeaVic Consulting.";
 ---
 
 <BaseLayout title="Privacy Notice" description={description} path="/privacy/">
@@ -12,7 +12,7 @@ const description = "Privacy Notice shell for SeaVic Consulting LLC.";
     <div class="container legal-page">
       <p class="eyebrow">Legal shell</p>
       <h1>Privacy Notice</h1>
-      <p class="lead">This page is a structured shell for {siteConfig.legalName}. Final legal text requires founder and counsel review before publication.</p>
+      <p class="lead">This page is a structured shell for {siteConfig.corporateName}. Final legal text requires founder and counsel review before publication.</p>
       <h2>Effective Date</h2>
       <p>To be approved before public launch.</p>
       <h2>Information We Collect</h2>
@@ -20,7 +20,7 @@ const description = "Privacy Notice shell for SeaVic Consulting LLC.";
       <h2>Contact Forms and Lead Handling</h2>
       <p>Do not send confidential, regulated or sensitive information through website contact channels.</p>
       <h2>Analytics and Cookies</h2>
-      <p>Analytics are disabled by default until the analytics, consent, retention and privacy approach is approved.</p>
+      <p>Optional analytics remain off unless the required consent, retention and privacy controls are approved.</p>
       <h2>Contact</h2>
       <p><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>
     </div>
