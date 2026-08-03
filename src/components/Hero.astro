@@ -34,6 +34,15 @@ const heroClass = [
   !showVisual && "hero--solo",
   size === "compact" && "hero--compact"
 ].filter(Boolean).join(" ");
+
+const visualTitles = {
+  "hero-control": "Fragmented AI activity moving into visibility, governance and control.",
+  "risk-evidence": "Discover AI use, assign ownership, test controls and produce reviewable evidence for a prioritized remediation path.",
+  management: "Register, observe, govern and control enterprise AI through an executive AI control plane.",
+  workflow: "Map the current workflow, design AI-supported work, set human approval boundaries and measure the operating outcome.",
+  about: "SeaVic connects strategy, security, governance and transformation through senior-led advisory.",
+  contact: "A SeaVic Discovery Call connects an operating issue to a useful next step."
+} as const;
 ---
 
 <section class={heroClass}>
@@ -49,7 +58,7 @@ const heroClass = [
     </div>
     {showVisual && (
       <div class={`hero__visual hero__visual--${visualVariant}`}>
-        <ConceptDiagram variant={visualVariant} tone="dark" title="Conceptual advisory diagram showing AI activity moving into visibility, governance and control" />
+        <ConceptDiagram variant={visualVariant} tone="dark" title={visualTitles[visualVariant]} />
       </div>
     )}
   </div>

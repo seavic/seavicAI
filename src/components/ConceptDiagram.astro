@@ -17,9 +17,9 @@ const diagrams = {
   "hero-control": ["Fragmented AI use and tools", "Visibility", "Governance", "Control"],
   offerings: ["Secure", "Manage", "Transform"],
   journey: ["Diagnose", "Govern", "Implement", "Transform", "Manage"],
-  "risk-evidence": ["AI use", "Ownership", "Risk controls", "Reviewable evidence"],
-  management: ["Register", "Observe", "Govern", "Control"],
-  workflow: ["Current work", "AI-supported activity", "Human approval or exception", "Measured outcome"],
+  "risk-evidence": ["Discover AI use", "Assign ownership", "Test controls", "Produce reviewable evidence"],
+  management: ["Register inventory and owner", "Observe usage, cost and risk", "Govern policy and decision rights", "Control approvals and limits"],
+  workflow: ["Map current workflow", "Design AI-supported work", "Set human approval and exception boundaries", "Measure operating outcome"],
   about: ["Strategy", "Security", "Governance", "Transformation"],
   contact: ["Operating issue", "Discovery Call", "Useful next step"]
 } as const;
@@ -45,21 +45,33 @@ const steps = diagrams[variant];
     )}
     {variant === "risk-evidence" && (
       <svg viewBox="0 0 1000 440" focusable="false">
-        <path class="track" d="M154 295C310 82 632 82 846 178" /><path class="track-arrow" d="M830 158l32 22-35 14" />
-        <path class="track-soft" d="M160 295C332 378 632 372 846 178" />
-        <circle class="node" cx="156" cy="295" r="54" /><path class="node-mark" d="M156 258l28 10v24c0 24-17 38-28 45-11-7-28-21-28-45v-24zM156 278v38" />
-        <circle class="node" cx="374" cy="152" r="54" /><path class="node-mark" d="M349 152h50M374 127v50" />
-        <circle class="node" cx="614" cy="132" r="54" /><path class="node-mark" d="M590 145l16 16 33-38" />
-        <circle class="node node--filled" cx="846" cy="178" r="62" /><path class="node-mark node-mark--paper" d="M822 178h48M846 154v48" />
-        <text class="label" x="156" y="382">AI use</text><text class="label" x="374" y="92">Ownership</text><text class="label" x="614" y="72">Risk controls</text><text class="label" x="846" y="290">Reviewable evidence</text>
+        <path class="track" d="M120 220H860" /><path class="track-arrow" d="M842 200l32 20-32 20" />
+        <path class="track-soft" d="M122 248H860" />
+        <circle class="node" cx="142" cy="220" r="52" /><path class="node-mark" d="M142 184l27 10v25c0 22-16 36-27 43-11-7-27-21-27-43v-25zM142 204v34" />
+        <circle class="node" cx="372" cy="220" r="52" /><path class="node-mark" d="M347 220h50M372 195v50" />
+        <circle class="node" cx="602" cy="220" r="52" /><path class="node-mark" d="M578 233l16 16 33-38" />
+        <circle class="node node--filled" cx="830" cy="220" r="60" /><path class="node-mark node-mark--paper" d="M806 220h48M830 196v48" />
+        <path class="outcome-rail" d="M830 282v40h112" />
+        <text class="stage-label" x="142" y="318">Discover<tspan x="142" dy="25">AI use</tspan></text>
+        <text class="stage-label" x="372" y="318">Assign<tspan x="372" dy="25">ownership</tspan></text>
+        <text class="stage-label" x="602" y="318">Test<tspan x="602" dy="25">controls</tspan></text>
+        <text class="stage-label" x="830" y="318">Produce reviewable<tspan x="830" dy="25">evidence</tspan></text>
+        <text class="callout" x="944" y="310">Prioritized remediation</text><text class="callout" x="944" y="338">and leadership-ready evidence</text>
       </svg>
     )}
     {variant === "management" && (
       <svg viewBox="0 0 1000 440" focusable="false">
-        <path class="loop" d="M296 136C420 52 610 52 734 136C822 196 822 274 734 326C610 400 420 400 296 326C208 274 208 196 296 136Z" /><path class="loop-arrow" d="M725 315l28 12-18 24" />
+        <path class="loop" d="M296 136C420 52 610 52 734 136C822 196 822 274 734 326C610 400 420 400 296 326C208 274 208 196 296 136Z" /><path class="loop-arrow" d="M716 112l32 16-25 18M760 298l6 34-30-12M314 350l-32-18 26-17M270 160l-4-34 30 13" />
         <circle class="hub" cx="515" cy="231" r="92" /><circle class="hub-inner" cx="515" cy="231" r="60" /><path class="hub-mark" d="M485 231h60M515 201v60" />
-        <circle class="node" cx="316" cy="150" r="43" /><circle class="node" cx="700" cy="150" r="43" /><circle class="node" cx="700" cy="312" r="43" /><circle class="node" cx="316" cy="312" r="43" />
-        <text class="label" x="316" y="82">Register</text><text class="label" x="700" y="82">Observe</text><text class="label" x="700" y="388">Govern</text><text class="label" x="316" y="388">Control</text><text class="center-label" x="515" y="222">AI</text><text class="center-label" x="515" y="252">control plane</text>
+        <circle class="node" cx="316" cy="150" r="43" /><path class="node-mark" d="M300 132h32M300 150h32M300 168h24" />
+        <circle class="node" cx="700" cy="150" r="43" /><path class="node-mark" d="M680 150c9-15 31-15 40 0-9 15-31 15-40 0zM700 150h1" />
+        <circle class="node" cx="700" cy="312" r="43" /><path class="node-mark" d="M682 318l13 13 27-32" />
+        <circle class="node" cx="316" cy="312" r="43" /><path class="node-mark" d="M316 286v52M290 312h52" />
+        <text class="stage-label" x="316" y="72">Register<tspan class="stage-detail" x="316" dy="24">inventory and owner</tspan></text>
+        <text class="stage-label" x="700" y="72">Observe<tspan class="stage-detail" x="700" dy="24">usage, cost and risk</tspan></text>
+        <text class="stage-label" x="700" y="380">Govern<tspan class="stage-detail" x="700" dy="24">policy and decision rights</tspan></text>
+        <text class="stage-label" x="316" y="380">Control<tspan class="stage-detail" x="316" dy="24">approvals and limits</tspan></text>
+        <text class="center-label" x="515" y="220">Executive AI</text><text class="center-label" x="515" y="248">control plane</text>
       </svg>
     )}
     {variant === "workflow" && (
@@ -69,7 +81,10 @@ const steps = diagrams[variant];
         <rect class="workflow-box workflow-box--teal" x="312" y="144" width="144" height="148" rx="16" /><path class="workflow-mark workflow-mark--paper" d="M350 232l26-28 20 20 30-38" />
         <path class="approval-gate" d="M556 160h120v116H556zM576 194h80M616 166v102" /><circle class="approval-core" cx="616" cy="218" r="22" />
         <circle class="outcome" cx="858" cy="218" r="72" /><path class="outcome-mark" d="M822 230l23 22 48-54" />
-        <text class="workflow-label" x="114" y="346">Current<tspan x="114" dy="26">work</tspan></text><text class="workflow-label" x="384" y="346">AI-supported<tspan x="384" dy="26">activity</tspan></text><text class="workflow-label" x="616" y="346">Human approval<tspan x="616" dy="26">or exception</tspan></text><text class="workflow-label" x="858" y="346">Measured<tspan x="858" dy="26">outcome</tspan></text>
+        <text class="workflow-label" x="114" y="346">Map current<tspan x="114" dy="25">workflow</tspan></text>
+        <text class="workflow-label" x="384" y="346">Design AI-supported<tspan x="384" dy="25">work</tspan></text>
+        <text class="workflow-label workflow-label--small" x="616" y="338">Set human approval<tspan x="616" dy="23">and exception</tspan><tspan x="616" dy="23">boundaries</tspan></text>
+        <text class="workflow-label" x="858" y="346">Measure operating<tspan x="858" dy="25">outcome</tspan></text>
       </svg>
     )}
     {variant === "about" && (
@@ -108,10 +123,13 @@ const steps = diagrams[variant];
   .control-ring { fill: rgba(8, 131, 141, 0.1); stroke: var(--color-teal); stroke-width: 3; }
   .control-ring-inner, .hub-inner { fill: none; stroke: var(--color-teal); stroke-width: 3; }
   .outcome { fill: rgba(8, 131, 141, 0.12); stroke: var(--color-teal); stroke-width: 3; }
-  .label, .callout, .center-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 23px; font-weight: 800; text-anchor: middle; }
+  .label, .callout, .center-label, .stage-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 23px; font-weight: 800; text-anchor: middle; }
   .callout { font-size: 20px; font-weight: 600; text-anchor: start; }
-  .center-label { font-size: 24px; font-weight: 800; }
+  .center-label { font-size: 20px; font-weight: 800; }
+  .stage-label { font-size: 19px; }
+  .stage-detail { font-size: 14px; font-weight: 600; }
   .workflow-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 20px; font-weight: 800; text-anchor: middle; }
+  .workflow-label--small { font-size: 18px; }
   .label--light { fill: var(--color-white); }
   .concept--hero-control .signal, .concept--hero-control .outcome-rail { stroke: #79d7db; }
   .concept--hero-control .source-dot, .concept--hero-control .control-core { fill: #79d7db; }
@@ -127,7 +145,7 @@ const steps = diagrams[variant];
   .concept--on-dark .node-mark--paper, .concept--on-dark .workflow-mark--paper { stroke: var(--color-white); }
   .concept--on-dark .control-halo, .concept--on-dark .outcome { fill: rgba(121, 215, 219, 0.12); }
   .concept--on-dark .control-ring, .concept--on-dark .control-ring-inner, .concept--on-dark .hub-inner, .concept--on-dark .outcome { stroke: #79d7db; }
-  .concept--on-dark .label, .concept--on-dark .callout, .concept--on-dark .center-label, .concept--on-dark .workflow-label { fill: var(--color-white); }
+  .concept--on-dark .label, .concept--on-dark .callout, .concept--on-dark .center-label, .concept--on-dark .stage-label, .concept--on-dark .workflow-label { fill: var(--color-white); }
   .concept__mobile-summary { display: none; }
   @media (max-width: 760px) {
     .concept__desktop-art { display: none; }

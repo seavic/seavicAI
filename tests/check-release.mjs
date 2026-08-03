@@ -31,6 +31,7 @@ const about = readHtml("/about/");
 const aboutSource = fs.readFileSync(path.join("src", "pages", "about.astro"), "utf8");
 const howSource = fs.readFileSync(path.join("src", "pages", "how-we-work.astro"), "utf8");
 const contentSource = fs.readFileSync(path.join("src", "data", "content.ts"), "utf8");
+const heroSource = fs.readFileSync(path.join("src", "components", "Hero.astro"), "utf8");
 
 for (const [route, html] of [
   ["/", home],
@@ -56,6 +57,8 @@ if (!contentSource.includes("Managing Partner, Cybersecurity, Governance & Clien
 if (!contentSource.includes("AI Control Diagnostic") || !contentSource.includes("Managed AI Governance")) failures.push("How We Work missing the authoritative five-stage pathway.");
 if (!howSource.includes("Principles that govern every engagement")) failures.push("How We Work missing the principles transition.");
 if (!howSource.includes("Technology in service of the client")) failures.push("How We Work missing the approved technology principle.");
+if (heroSource.includes("Conceptual advisory diagram")) failures.push("Hero must not render a generic conceptual-diagram caption.");
+if (!heroSource.includes("Discover AI use, assign ownership, test controls")) failures.push("Hero missing the approved AI Security and Governance visual story.");
 if (count(home, /Enterprise &amp; Business Leadership|Enterprise & Business Leadership/g) !== 1) failures.push("Homepage missing buyer group: Enterprise & Business Leadership.");
 if (count(home, /Technology &amp; AI Leadership|Technology & AI Leadership/g) !== 1) failures.push("Homepage missing buyer group: Technology & AI Leadership.");
 if (count(home, /Security, Risk &amp; Legal Leadership|Security, Risk & Legal Leadership/g) !== 1) failures.push("Homepage missing buyer group: Security, Risk & Legal Leadership.");

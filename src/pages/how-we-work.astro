@@ -67,10 +67,10 @@ const description =
 </BaseLayout>
 
 <style>
-  .principles-grid { align-items: stretch; }
-  .principle-card { min-height: 21rem; }
-  .principle-card .card__body { display: grid; grid-template-rows: 4rem minmax(0, 1fr); height: 100%; }
-  .principle-card h3 { margin: 0; }
+  .principles-grid { align-items: stretch; grid-auto-rows: 1fr; }
+  .principle-card { min-height: 20.5rem; }
+  .principle-card .card__body { display: grid; grid-template-rows: 4.5rem minmax(0, 1fr); height: 100%; align-content: start; }
+  .principle-card h3 { margin: 0; line-height: 1.18; }
   .principle-card p { margin: 0; }
   @media (max-width: 880px) { .principle-card .card__body { grid-template-rows: auto auto; gap: 0.7rem; } }
 </style>
