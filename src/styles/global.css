@@ -359,9 +359,11 @@ p {
 .signal, .track, .track-soft, .loop { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 4 9; opacity: 0.78; }
 .track-soft { opacity: 0.38; }
 .track-arrow, .loop-arrow, .loop-link, .loop-link-arrow, .outcome-rail, .workflow-line, .approval-gate { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.source-dot, .control-core, .approval-core { fill: var(--color-teal); }
+.loop-link { stroke-width: 4; }
+.arrowhead { fill: var(--color-teal); }
+.source-dot, .control-core, .approval-core, .approval-person, .approval-badge { fill: var(--color-teal); }
 .source-box, .node, .hub, .workflow-box, .approval-gate { fill: var(--color-white); stroke: var(--color-teal); stroke-width: 3; }
-.source-mark, .node-mark, .hub-mark, .workflow-mark, .outcome-mark { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.source-mark, .node-mark, .hub-mark, .workflow-mark, .outcome-mark, .approval-check, .approval-outline { fill: none; stroke: var(--color-teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .node--filled, .workflow-box--teal { fill: var(--color-teal); }
 .node-mark--paper, .workflow-mark--paper { stroke: var(--color-white); }
 .control-halo { fill: rgba(8, 131, 141, 0.14); }
@@ -371,23 +373,26 @@ p {
 .label, .callout, .center-label, .stage-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 23px; font-weight: 800; text-anchor: middle; }
 .callout { font-size: 20px; font-weight: 600; text-anchor: start; }
 .center-label { font-size: 20px; }
-.stage-label { font-size: 19px; }
-.stage-detail { font-size: 14px; font-weight: 600; }
+.stage-label { font-size: 21px; }
+.stage-detail { font-size: 16px; font-weight: 600; }
 .output-label, .output-detail { fill: var(--color-navy); font-family: var(--font-sans); text-anchor: middle; }
 .output-label { font-size: 20px; font-weight: 800; }
 .output-detail { font-size: 16px; font-weight: 600; }
-.workflow-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 20px; font-weight: 800; text-anchor: middle; }
-.workflow-label--small { font-size: 18px; }
+.workflow-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 22px; font-weight: 800; text-anchor: middle; }
+.workflow-label--small { font-size: 20px; }
+.about-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 22px; font-weight: 800; }
+.about-label--left { text-anchor: end; }
+.about-label--right { text-anchor: start; }
 .label--light { fill: var(--color-white); }
 .concept--on-dark .signal, .concept--on-dark .track, .concept--on-dark .track-soft, .concept--on-dark .loop, .concept--on-dark .track-arrow, .concept--on-dark .loop-arrow, .concept--on-dark .loop-link, .concept--on-dark .loop-link-arrow, .concept--on-dark .outcome-rail, .concept--on-dark .workflow-line, .concept--on-dark .approval-gate { stroke: #79d7db; }
-.concept--on-dark .source-dot, .concept--on-dark .control-core, .concept--on-dark .approval-core { fill: #79d7db; }
+.concept--on-dark .arrowhead, .concept--on-dark .source-dot, .concept--on-dark .control-core, .concept--on-dark .approval-core, .concept--on-dark .approval-person, .concept--on-dark .approval-badge { fill: #79d7db; }
 .concept--on-dark .source-box, .concept--on-dark .node, .concept--on-dark .hub, .concept--on-dark .workflow-box, .concept--on-dark .approval-gate { fill: rgba(255, 255, 255, 0.04); stroke: #79d7db; }
 .concept--on-dark .node--filled, .concept--on-dark .workflow-box--teal { fill: var(--color-teal); }
-.concept--on-dark .source-mark, .concept--on-dark .node-mark, .concept--on-dark .hub-mark, .concept--on-dark .workflow-mark, .concept--on-dark .outcome-mark { stroke: #79d7db; }
+.concept--on-dark .source-mark, .concept--on-dark .node-mark, .concept--on-dark .hub-mark, .concept--on-dark .workflow-mark, .concept--on-dark .outcome-mark, .concept--on-dark .approval-check, .concept--on-dark .approval-outline { stroke: #79d7db; }
 .concept--on-dark .node-mark--paper, .concept--on-dark .workflow-mark--paper { stroke: var(--color-white); }
 .concept--on-dark .control-halo, .concept--on-dark .outcome, .concept--on-dark .output-card { fill: rgba(121, 215, 219, 0.12); }
 .concept--on-dark .control-ring, .concept--on-dark .control-ring-inner, .concept--on-dark .hub-inner, .concept--on-dark .outcome, .concept--on-dark .output-card { stroke: #79d7db; }
-.concept--on-dark .label, .concept--on-dark .callout, .concept--on-dark .center-label, .concept--on-dark .stage-label, .concept--on-dark .workflow-label, .concept--on-dark .output-label, .concept--on-dark .output-detail { fill: var(--color-white); }
+.concept--on-dark .label, .concept--on-dark .callout, .concept--on-dark .center-label, .concept--on-dark .stage-label, .concept--on-dark .workflow-label, .concept--on-dark .output-label, .concept--on-dark .output-detail, .concept--on-dark .about-label { fill: var(--color-white); }
 .concept__mobile-summary { display: none; }
 
 @media (max-width: 1180px) {
