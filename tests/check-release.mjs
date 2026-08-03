@@ -27,6 +27,10 @@ const how = readHtml("/how-we-work/");
 const security = readHtml("/ai-security-governance/");
 const management = readHtml("/ai-management-control/");
 const transformation = readHtml("/ai-enablement-transformation/");
+const about = readHtml("/about/");
+const aboutSource = fs.readFileSync(path.join("src", "pages", "about.astro"), "utf8");
+const howSource = fs.readFileSync(path.join("src", "pages", "how-we-work.astro"), "utf8");
+const contentSource = fs.readFileSync(path.join("src", "data", "content.ts"), "utf8");
 
 for (const [route, html] of [
   ["/", home],
@@ -34,7 +38,7 @@ for (const [route, html] of [
   ["/ai-security-governance/", security],
   ["/ai-management-control/", management],
   ["/ai-enablement-transformation/", transformation],
-  ["/about/", readHtml("/about/")],
+  ["/about/", about],
   ["/contact/", readHtml("/contact/")]
 ]) {
   if (!html.includes('content="noindex,nofollow"')) failures.push(`${route}: missing staging noindex,nofollow`);
@@ -46,6 +50,12 @@ if (home.indexOf("Does one of these situations sound familiar?") < home.indexOf(
 }
 
 if (fs.existsSync(path.join(dist, "concepts"))) failures.push("Concept routes were built into dist.");
+if (aboutSource.includes("Keep public claims tied to approved evidence.")) failures.push("About must not include the internal claim-control sentence.");
+if (!aboutSource.includes("Make recommendations leaders can evidence, own and put into practice.")) failures.push("About missing approved client-facing evidence sentence.");
+if (!contentSource.includes("Managing Partner, Cybersecurity, Governance & Client Delivery")) failures.push("About missing Victor Gan's approved title.");
+if (!contentSource.includes("AI Control Diagnostic") || !contentSource.includes("Managed AI Governance")) failures.push("How We Work missing the authoritative five-stage pathway.");
+if (!howSource.includes("Principles that govern every engagement")) failures.push("How We Work missing the principles transition.");
+if (!howSource.includes("Technology in service of the client")) failures.push("How We Work missing the approved technology principle.");
 if (count(home, /Enterprise &amp; Business Leadership|Enterprise & Business Leadership/g) !== 1) failures.push("Homepage missing buyer group: Enterprise & Business Leadership.");
 if (count(home, /Technology &amp; AI Leadership|Technology & AI Leadership/g) !== 1) failures.push("Homepage missing buyer group: Technology & AI Leadership.");
 if (count(home, /Security, Risk &amp; Legal Leadership|Security, Risk & Legal Leadership/g) !== 1) failures.push("Homepage missing buyer group: Security, Risk & Legal Leadership.");

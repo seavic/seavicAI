@@ -28,7 +28,9 @@ const page = servicePages.management;
       <SectionHeading eyebrow="The management problem" title="AI complexity grows one decision at a time." lead={page.problem} />
       <div class="visual-panel">
         <h3>Core problem areas</h3>
-        <p>{page.coreProblems}</p>
+        <ul class="list-clean output-list">
+          {page.coreProblems.map((problem) => <li>{problem}</li>)}
+        </ul>
       </div>
     </div>
   </section>
@@ -66,10 +68,9 @@ const page = servicePages.management;
       />
       <div class="visual-panel">
         <h3>Outputs may include</h3>
-        <ul class="list-clean">
+        <ul class="list-clean output-list">
           {page.outputs.map((output) => <li>{output}</li>)}
         </ul>
-        <p>{page.ctaPrompt}</p>
       </div>
     </div>
   </section>

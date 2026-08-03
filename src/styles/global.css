@@ -227,6 +227,46 @@ p {
   color: var(--color-gray);
 }
 
+.output-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.output-list li {
+  position: relative;
+  min-height: 2.25rem;
+  display: flex;
+  align-items: center;
+  padding: 0.35rem 0 0.35rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.output-list li:last-child {
+  border-bottom: 0;
+}
+
+.output-list li::before {
+  position: absolute;
+  left: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid var(--color-teal);
+  border-radius: 50%;
+  background: var(--color-white);
+  content: "";
+}
+
+.output-list li::after {
+  position: absolute;
+  left: 0.42rem;
+  width: 0.45rem;
+  height: 0.23rem;
+  border-left: 2px solid var(--color-teal);
+  border-bottom: 2px solid var(--color-teal);
+  transform: rotate(-45deg) translateY(-0.08rem);
+  content: "";
+}
+
 .two-column {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);

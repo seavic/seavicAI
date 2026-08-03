@@ -25,114 +25,82 @@ const diagrams = {
 
 const { variant, title = "Conceptual operating-model diagram" } = Astro.props;
 const steps = diagrams[variant];
+const isLoop = variant === "management" || variant === "about";
+const isHeroControl = variant === "hero-control";
 ---
 
-<figure class={`concept concept--${variant}`} aria-label={title}>
-  <div class="concept__flow">
-    {steps.map((step, index) => (
-      <div class="concept__item">
-        <span class="concept__marker">{String(index + 1).padStart(2, "0")}</span>
-        <span class="concept__label">{step}</span>
-      </div>
-    ))}
+<figure class={`concept concept--${variant}`} aria-labelledby={`${variant}-diagram-title`}>
+  <figcaption id={`${variant}-diagram-title`} class="sr-only">{title}</figcaption>
+  <div class="concept__canvas">
+    <svg class="concept__art" viewBox="0 0 1000 180" aria-hidden="true" focusable="false">
+      {isHeroControl ? (
+        <>
+          <path class="concept__signal" d="M110 38C260 10 390 52 520 87" />
+          <path class="concept__signal" d="M118 92C250 90 380 94 520 90" />
+          <path class="concept__signal" d="M110 140C255 168 382 128 520 96" />
+          <circle class="concept__signal-dot" cx="112" cy="38" r="7" />
+          <circle class="concept__signal-dot" cx="180" cy="63" r="5" />
+          <circle class="concept__signal-dot" cx="122" cy="120" r="5" />
+          <circle class="concept__signal-dot" cx="230" cy="132" r="7" />
+          <circle class="concept__signal-dot" cx="310" cy="42" r="5" />
+          <circle class="concept__control-ring" cx="650" cy="90" r="58" />
+          <circle class="concept__control-ring-inner" cx="650" cy="90" r="38" />
+          <circle class="concept__control-core" cx="650" cy="90" r="10" />
+          <path class="concept__control-link" d="M716 90H858M858 54v72M858 54h34M858 90h34M858 126h34" />
+        </>
+      ) : isLoop ? (
+        <>
+          <path class="concept__loop" d="M500 24C720 24 845 68 845 90C845 132 655 156 500 156C345 156 155 132 155 90C155 48 280 24 500 24Z" />
+          <path class="concept__loop-arrow" d="M838 77l18 14-22 7" />
+          <circle class="concept__hub" cx="500" cy="90" r="28" />
+          <path class="concept__hub-mark" d="M487 90h26M500 77v26" />
+        </>
+      ) : (
+        <>
+          <path class="concept__path" d="M110 90H890" />
+          <path class="concept__path-arrow" d="M878 78l16 12-16 12" />
+          <circle class="concept__path-dot" cx="110" cy="90" r="7" />
+          <circle class="concept__path-dot" cx="890" cy="90" r="7" />
+        </>
+      )}
+    </svg>
+    <ol class="concept__flow">
+      {steps.map((step, index) => (
+        <li class="concept__item">
+          <span class="concept__marker">{String(index + 1).padStart(2, "0")}</span>
+          <span class="concept__label">{step}</span>
+        </li>
+      ))}
+    </ol>
   </div>
 </figure>
 
 <style>
-  .concept {
-    margin: 0;
-  }
-
-  .concept__flow {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(var(--concept-count, 4), minmax(0, 1fr));
-    gap: clamp(0.85rem, 2vw, 1rem);
-  }
-
-  .concept--offerings .concept__flow,
-  .concept--contact .concept__flow {
-    --concept-count: 3;
-  }
-
-  .concept--journey .concept__flow {
-    --concept-count: 5;
-  }
-
-  .concept__flow::before {
-    position: absolute;
-    left: 6%;
-    right: 6%;
-    top: 20px;
-    height: 1px;
-    background: var(--color-border);
-    content: "";
-  }
-
-  .concept__item {
-    position: relative;
-    display: grid;
-    justify-items: center;
-    gap: 0.75rem;
-    min-height: 120px;
-    padding: 0.25rem 0.35rem 0;
-    text-align: center;
-  }
-
-  .concept__marker {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--color-teal);
-    border-radius: 999px;
-    background: var(--color-white);
-    color: var(--color-navy);
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .concept__label {
-    display: flex;
-    min-height: 62px;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background: var(--color-white);
-    color: var(--color-ink);
-    font-weight: 800;
-    line-height: 1.25;
-  }
-
+  .concept { margin: 0; min-width: 0; }
+  .concept__canvas { position: relative; min-width: 0; padding-block: 1rem 0.25rem; }
+  .concept__art { position: absolute; inset: 0 0 auto; width: 100%; height: 118px; overflow: visible; }
+  .concept__path, .concept__loop, .concept__signal { fill: none; stroke: var(--color-teal); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 3 7; opacity: 0.72; }
+  .concept__path-arrow, .concept__loop-arrow { fill: none; stroke: var(--color-teal); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .concept__path-dot, .concept__hub { fill: var(--color-white); stroke: var(--color-teal); stroke-width: 2; }
+  .concept__hub-mark { fill: none; stroke: var(--color-teal); stroke-width: 2; stroke-linecap: round; }
+  .concept__signal-dot { fill: var(--color-teal); }
+  .concept__control-ring { fill: rgba(8, 131, 141, 0.08); stroke: var(--color-teal); stroke-width: 2; }
+  .concept__control-ring-inner { fill: none; stroke: var(--color-teal); stroke-width: 2; }
+  .concept__control-core { fill: var(--color-teal); }
+  .concept__control-link { fill: none; stroke: var(--color-teal); stroke-width: 2; opacity: 0.72; }
+  .concept__flow { display: grid; grid-template-columns: repeat(var(--concept-count, 4), minmax(0, 1fr)); gap: clamp(0.5rem, 1.5vw, 1rem); padding: 0; margin: 0; list-style: none; }
+  .concept--offerings .concept__flow, .concept--contact .concept__flow { --concept-count: 3; }
+  .concept--journey .concept__flow { --concept-count: 5; }
+  .concept__item { position: relative; z-index: 1; display: grid; justify-items: center; gap: 0.75rem; min-width: 0; text-align: center; }
+  .concept__marker { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-teal); border-radius: 50%; background: var(--color-white); color: var(--color-navy); font-weight: 800; line-height: 1; }
+  .concept__label { display: grid; min-width: 0; min-height: 3.2em; place-items: start center; color: var(--color-ink); font-size: clamp(0.78rem, 1.3vw, 0.95rem); font-weight: 800; line-height: 1.25; overflow-wrap: anywhere; }
+  .concept--management .concept__label, .concept--about .concept__label { color: var(--color-navy); }
   @media (max-width: 760px) {
-    .concept__flow {
-      grid-template-columns: 1fr;
-    }
-
-    .concept__flow::before {
-      left: 20px;
-      right: auto;
-      top: 8px;
-      bottom: 8px;
-      width: 1px;
-      height: auto;
-    }
-
-    .concept__item {
-      grid-template-columns: 40px minmax(0, 1fr);
-      justify-items: start;
-      align-items: center;
-      min-height: 68px;
-      text-align: left;
-    }
-
-    .concept__label {
-      width: 100%;
-      min-height: 52px;
-      justify-content: flex-start;
-    }
+    .concept__canvas { padding: 0; }
+    .concept__art { display: none; }
+    .concept__flow { grid-template-columns: 1fr; gap: 0.65rem; }
+    .concept__item { grid-template-columns: 42px minmax(0, 1fr); justify-items: start; align-items: center; gap: 0.85rem; padding: 0.35rem 0; text-align: left; }
+    .concept__item:not(:last-child)::after { position: absolute; left: 20px; top: 52px; bottom: -0.65rem; width: 2px; background: var(--color-border); content: ""; }
+    .concept__label { min-height: auto; place-items: center start; font-size: 0.95rem; text-align: left; }
   }
 </style>

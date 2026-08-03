@@ -89,32 +89,32 @@ export const offerings = [
 
 export const methodSteps = [
   {
-    title: "Diagnose",
-    description: "Understand the AI decision, current evidence, ownership, risk, spend, value and operating gaps."
+    title: "AI Control Diagnostic",
+    description: "Establish the current state, priorities, decision scope and immediate risks."
   },
   {
-    title: "Govern",
-    description: "Define decision rights, policies, controls, evidence, exception paths and management responsibilities."
+    title: "Security, Governance & Value Readiness",
+    description: "Baseline control maturity, evidence gaps and priority value opportunities."
   },
   {
-    title: "Implement",
-    description: "Turn recommendations into operating routines, remediation actions, control design and enabling architecture."
+    title: "Operating-Model & Control Design",
+    description: "Define roles, decision rights, approval boundaries, evidence and escalation paths."
   },
   {
-    title: "Transform",
-    description: "Redesign workflows, clarify human accountability and connect AI use to measurable business outcomes."
+    title: "Technology Enablement",
+    description: "Implement the selected control, workflow and supporting technology changes."
   },
   {
-    title: "Manage",
-    description: "Establish recurring oversight, reporting, exception review, value tracking and practical governance support."
+    title: "Managed AI Governance",
+    description: "Maintain oversight, evidence, improvement cadence and executive visibility."
   }
 ];
 
 export const entryPathway = [
   "AI Control Diagnostic",
-  "AI Security, Governance and Value Readiness Assessment",
-  "Operating-model and control implementation",
-  "Technology enablement",
+  "Security, Governance & Value Readiness",
+  "Operating-Model & Control Design",
+  "Technology Enablement",
   "Managed AI Governance"
 ];
 
@@ -143,7 +143,7 @@ export const leadership = [
   },
   {
     name: "Victor Gan",
-    title: "",
+    title: "Managing Partner, Cybersecurity, Governance & Client Delivery",
     bio:
       "Victor Gan is a technology, cybersecurity and consulting leader with experience across enterprise solutions, security, delivery, partnerships and regional market development. His work combines technology risk, business priorities and practical implementation, helping organizations address complex technology and security challenges without losing sight of operational outcomes. At SeaVic, Victor provides leadership across security and governance, client engagement, delivery oversight and strategic business development, complementing SeaVic's broader AI governance, management and transformation capabilities."
   }
@@ -189,7 +189,7 @@ export const servicePages = {
     does:
       "Start with evidence, then decide what needs to change. Work may cover AI visibility and ownership; risk and control review; governance design; evidence and reporting; and a prioritized action plan.",
     engagement:
-      "Executive sponsor plus relevant AI/IT, security, legal/risk/privacy and business stakeholders. Begin with a focused discovery around the decision leadership needs to make and what evidence already exists. Examine AI use, ownership, risk, policies, controls, decision rights, exceptions and management visibility. Outputs may include findings, priority control and ownership gaps, governance recommendations, an action roadmap and executive readout. Timing is scoped during discovery rather than published as a fixed commitment.",
+      "A focused working session with an executive sponsor and the AI, technology, security, risk and business leaders closest to the decision. We review the evidence, ownership and control gaps that matter, then agree a practical next step.",
     outputs: [
       "Findings tied to reviewable evidence.",
       "Priority control and ownership gaps.",
@@ -229,8 +229,12 @@ export const servicePages = {
     ],
     problem:
       "AI complexity grows one decision at a time. A business unit adds a copilot. Another team builds a RAG application. Developers introduce another model provider. Finance sees growing consumption. Security finds tools it did not know about. Then agents begin accessing systems and triggering workflows. Each decision may make sense on its own. The problem is that the enterprise ends up managing them separately.",
-    coreProblems:
-      "AI is difficult to inventory; governance is rebuilt application by application; cost is fragmented; evidence is scattered; vendor complexity is increasing; and AI is beginning to act.",
+    coreProblems: [
+      "AI is difficult to inventory.",
+      "Governance is rebuilt application by application.",
+      "Cost and evidence are fragmented.",
+      "AI is beginning to act across systems and workflows."
+    ],
     disciplines: [
       {
         title: "Register",
@@ -260,9 +264,7 @@ export const servicePages = {
     does:
       "Establish the inventory; clarify ownership; create management visibility; define common governance; prepare for agentic AI; design the management cadence; and determine the enabling architecture. Existing enterprise platforms come first. Additional technology is considered only where it closes a defined management or control gap.",
     engagement:
-      "CIO, CTO or CAIO leadership; CISO/Risk; Finance/FinOps; AI governance; Enterprise Architecture; platform teams; and relevant business owners. Begin by identifying the enterprise AI management questions leadership cannot answer reliably today. Examine the AI estate, ownership, risk, usage, cost, value, governance, evidence, technology landscape and emerging agent requirements. Outputs may include the current-state management model, priority gaps, target control-plane design, ownership and decision framework, reporting requirements and implementation roadmap. Timing is defined during discovery based on organizational scope, AI maturity, regulatory requirements and available evidence.",
-    ctaPrompt:
-      "Can leadership answer the basic questions about enterprise AI--what are we running, who owns it, what does it cost, what risk does it create, what is it allowed to do, and can we prove how it is being managed?",
+      "We bring together CIO, CTO or CAIO leadership with CISO/Risk, Finance/FinOps, AI governance, enterprise architecture, platform teams and accountable business owners. The work begins with the management questions leadership needs to answer, then scopes the evidence and design work needed to answer them reliably.",
     outputs: [
       "Current-state management model.",
       "Priority gaps.",
@@ -304,7 +306,7 @@ export const servicePages = {
     does:
       "Use-case prioritization; current-state workflow discovery; future-state workflow design; human accountability; pilot and implementation design; and value and adoption measures.",
     engagement:
-      "Executive sponsor, process/business owner, frontline subject-matter experts, AI/IT/Data, Security/Risk where relevant, and change/adoption leadership. Begin with a real business problem or workflow where AI could materially improve the outcome. Examine the current workflow, decisions, handoffs, data, systems, controls, pain points, exceptions and value drivers. Outputs may include current/future-state workflow, prioritized use cases, decision and approval boundaries, pilot plan, business measures and implementation roadmap. SeaVic may support implementation governance and coordinate technology or specialist partners where required. Timing is confirmed once the workflow, stakeholders and pilot boundary are understood.",
+      "An executive sponsor, process owner, frontline subject-matter experts and the relevant AI, technology, security, risk and adoption leaders work from a real workflow and outcome. The engagement establishes the decisions, handoffs, controls and measures required for a bounded pilot or implementation path.",
     outputs: [
       "Current and future-state workflow.",
       "Prioritized use cases.",
