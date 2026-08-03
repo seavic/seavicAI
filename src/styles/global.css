@@ -373,6 +373,7 @@ p {
 .outcome, .output-card { fill: rgba(8, 131, 141, 0.12); stroke: var(--color-teal); stroke-width: 3; }
 .label, .callout, .center-label, .stage-label { fill: var(--color-navy); font-family: var(--font-sans); font-size: 23px; font-weight: 800; text-anchor: middle; }
 .callout { font-size: 20px; font-weight: 600; text-anchor: start; }
+.concept--hero-control .callout { font-size: 18px; }
 .center-label { font-size: 20px; }
 .stage-label { font-size: 21px; }
 .stage-detail { font-size: 16px; font-weight: 600; }

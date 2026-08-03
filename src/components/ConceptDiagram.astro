@@ -37,10 +37,10 @@ const steps = diagrams[variant];
         <circle class="source-dot" cx="106" cy="104" r="10" /><circle class="source-dot" cx="184" cy="152" r="7" /><circle class="source-dot" cx="144" cy="272" r="8" /><circle class="source-dot" cx="246" cy="318" r="10" /><circle class="source-dot" cx="312" cy="114" r="8" /><circle class="source-dot" cx="360" cy="254" r="7" />
         <rect class="source-box" x="70" y="70" width="72" height="72" rx="12" /><path class="source-mark" d="M91 106h30M106 91v30" />
         <rect class="source-box" x="204" y="282" width="72" height="72" rx="12" /><path class="source-mark" d="M224 330l12-18 18 18" />
-        <circle class="control-halo" cx="650" cy="216" r="122" /><circle class="control-ring" cx="650" cy="216" r="92" /><circle class="control-ring-inner" cx="650" cy="216" r="64" /><circle class="control-core" cx="650" cy="216" r="16" />
-        <path class="outcome-rail" d="M780 216H884M884 116v204M884 116h36M884 184h36M884 252h36M884 320h36" />
+        <circle class="control-halo" cx="620" cy="216" r="122" /><circle class="control-ring" cx="620" cy="216" r="92" /><circle class="control-ring-inner" cx="620" cy="216" r="64" /><circle class="control-core" cx="620" cy="216" r="16" />
+        <path class="outcome-rail" d="M748 216H760M760 112v208M760 112h26M760 184h26M760 252h26M760 320h26" />
         <text class="label label--light" x="98" y="404">Fragmented AI use and tools</text><text class="label label--light" x="572" y="404">Visibility · Governance · Control</text>
-        <text class="callout label--light" x="930" y="122">Reduce risk</text><text class="callout label--light" x="930" y="190">Build accountability</text><text class="callout label--light" x="930" y="258">Strengthen governance</text><text class="callout label--light" x="930" y="326">Drive outcomes</text>
+        <text class="callout label--light" x="798" y="118">Reduce risk</text><text class="callout label--light" x="798" y="190">Build accountability</text><text class="callout label--light" x="798" y="262">Strengthen governance</text><text class="callout label--light" x="798" y="334">Drive outcomes</text>
       </svg>
     )}
     {variant === "risk-evidence" && (
@@ -162,6 +162,7 @@ const steps = diagrams[variant];
   .concept--hero-control .source-box { fill: rgba(255, 255, 255, 0.06); }
   .concept--hero-control .source-mark { stroke: #79d7db; }
   .concept--hero-control .control-halo { fill: rgba(121, 215, 219, 0.12); }
+  .concept--hero-control .callout { font-size: 18px; }
   .concept--on-dark .signal, .concept--on-dark .track, .concept--on-dark .track-soft, .concept--on-dark .loop, .concept--on-dark .track-arrow, .concept--on-dark .loop-arrow, .concept--on-dark .loop-link, .concept--on-dark .loop-link-arrow, .concept--on-dark .outcome-rail, .concept--on-dark .workflow-line, .concept--on-dark .approval-gate { stroke: #79d7db; }
   .concept--on-dark .arrowhead, .concept--on-dark .source-dot, .concept--on-dark .control-core, .concept--on-dark .approval-core, .concept--on-dark .approval-person, .concept--on-dark .approval-badge { fill: #79d7db; }
   .concept--on-dark .source-box, .concept--on-dark .node, .concept--on-dark .hub, .concept--on-dark .workflow-box, .concept--on-dark .approval-gate { fill: rgba(255, 255, 255, 0.04); stroke: #79d7db; }
