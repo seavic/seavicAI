@@ -4,6 +4,14 @@ Public copy follows this approval path:
 
 Draft -> Evidence review -> Founder approval -> Approved Messaging Library update -> Publication.
 
+Homepage diagram update as of 2026-08-04:
+
+- The "offerings" ConceptDiagram (bare Secure/Manage/Transform circles under the three offering cards) is removed from the homepage. It was found to be purely redundant with the three offering cards immediately above it, which already carry the full approved copy for each offering.
+- The "journey" ConceptDiagram (Diagnose/Govern/Implement/Transform/Manage) is retained. Its SVG viewBox was corrected to remove ~60% dead vertical whitespace that was rendering as an apparent broken/empty section on staging.
+- One bridging sentence was added under the journey diagram: "This method underpins the entry pathway below, from the AI Control Diagnostic through Managed AI Governance." This connects the five-word methodology to the Entry Pathway section that follows it, since the methodology previously appeared nowhere else on the site with any explanation. This is new copy, not sourced from the Approved Messaging Library — flagged for evidence review rather than treated as pre-approved.
+- The "three offerings" and "method" locked-content categories referenced above (2026-07-31 entry) remain present in substance: offerings via the three cards, method via the corrected diagram and headline. Only the duplicate offerings visual was removed.
+- Status: founder working decision (Lui Sieh), implemented on branch `codex/homepage-diagram-cleanup-1`. Not yet confirmed in a Victor review pass — carry into the next gate alongside the rest of the ACT-051 v16 staging baseline.
+
 Current review state as of 2026-07-31:
 
 - Temporary GitHub Pages review deployment is live at `https://staging.seavicai.com/`.
