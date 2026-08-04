@@ -118,6 +118,14 @@ export const entryPathway = [
   "Managed AI Governance"
 ];
 
+export const journeyCaptions = [
+  "Establish the current state, risks and decision priorities.",
+  "Define decision rights, ownership and approval boundaries.",
+  "Put controls, evidence and workflow changes in place.",
+  "Drive adoption across the affected teams and workflows.",
+  "Sustain oversight with recurring executive visibility."
+  ];
+
 export const executiveQuestions = [
   "What AI is being used?",
   "What risk does it create?",
