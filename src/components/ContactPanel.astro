@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from "../data/siteConfig";
-import BookingLink from "./BookingLink.astro";
+import { bookingHref, bookingLinkAttributes } from "../lib/booking";
 ---
 
 <div class="contact-panel card">
@@ -11,7 +11,7 @@ import BookingLink from "./BookingLink.astro";
       Send a short note about the AI decision, operating issue or governance question you want to clarify.
       Please do not include confidential, regulated or sensitive information.
     </p>
-    <p><BookingLink class="button">Book a SeaVic Discovery Call</BookingLink></p>
+    <p><a class="button" href={bookingHref} {...bookingLinkAttributes}>Book a SeaVic Discovery Call</a></p>
     <p><a href={`mailto:${siteConfig.contactEmail}`}>Email {siteConfig.contactEmail}</a></p>
   </div>
 </div>

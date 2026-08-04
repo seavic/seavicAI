@@ -1,6 +1,6 @@
 ---
 import ConceptDiagram from "./ConceptDiagram.astro";
-import BookingLink from "./BookingLink.astro";
+import { bookingHref, bookingLinkAttributes } from "../lib/booking";
 import { localPath } from "../lib/urls";
 
 interface Props {
@@ -55,7 +55,7 @@ const visualTitles = {
       <div class="button-row">
         {
           primaryLabel === "Book a SeaVic Discovery Call" ? (
-            <BookingLink class="button">{primaryLabel}</BookingLink>
+            <a class="button" href={bookingHref} {...bookingLinkAttributes}>{primaryLabel}</a>
           ) : (
             <a class="button" href={localPath(primaryHref)}>{primaryLabel}</a>
           )

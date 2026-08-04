@@ -1,6 +1,6 @@
 ---
 import { localPath } from "../lib/urls";
-import BookingLink from "./BookingLink.astro";
+import { bookingHref, bookingLinkAttributes } from "../lib/booking";
 
 interface Props {
   title?: string;
@@ -23,7 +23,7 @@ const {
       <p class="lead">{lead}</p>
     </div>
     <div class="button-row">
-      <BookingLink class="button button--on-dark">Book a SeaVic Discovery Call</BookingLink>
+      <a class="button button--on-dark" href={bookingHref} {...bookingLinkAttributes}>Book a SeaVic Discovery Call</a>
       {showSecondary && <a class="button button--ghost" href={localPath("/how-we-work/")}>See How We Work</a>}
     </div>
   </div>

@@ -1,6 +1,6 @@
 ---
 import { primaryNavigation } from "../data/navigation";
-import BookingLink from "./BookingLink.astro";
+import { bookingHref, bookingLinkAttributes } from "../lib/booking";
 import { localPath } from "../lib/urls";
 
 const currentPath = Astro.url.pathname;
@@ -21,14 +21,14 @@ function isActive(href: string) {
         <a href={localPath(item.href)} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>
       ))}
     </nav>
-    <BookingLink class="header-cta">Book a SeaVic Discovery Call</BookingLink>
+    <a class="header-cta" href={bookingHref} {...bookingLinkAttributes}>Book a SeaVic Discovery Call</a>
     <details class="mobile-nav">
       <summary>Menu</summary>
       <nav aria-label="Mobile navigation">
         {primaryNavigation.map((item) => (
           <a href={localPath(item.href)} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>
         ))}
-        <BookingLink class="mobile-nav__cta">Book a SeaVic Discovery Call</BookingLink>
+        <a class="mobile-nav__cta" href={bookingHref} {...bookingLinkAttributes}>Book a SeaVic Discovery Call</a>
       </nav>
     </details>
   </div>

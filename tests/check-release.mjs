@@ -33,7 +33,7 @@ const howSource = fs.readFileSync(path.join("src", "pages", "how-we-work.astro")
 const contentSource = fs.readFileSync(path.join("src", "data", "content.ts"), "utf8");
 const siteConfigSource = fs.readFileSync(path.join("src", "data", "siteConfig.ts"), "utf8");
 const heroSource = fs.readFileSync(path.join("src", "components", "Hero.astro"), "utf8");
-const bookingLinkSource = fs.readFileSync(path.join("src", "components", "BookingLink.astro"), "utf8");
+const bookingLinkSource = fs.readFileSync(path.join("src", "lib", "booking.ts"), "utf8");
 const diagramSource = fs.readFileSync(path.join("src", "components", "ConceptDiagram.astro"), "utf8");
 const globalStyles = fs.readFileSync(path.join("src", "styles", "global.css"), "utf8");
 
@@ -69,7 +69,7 @@ if (!siteConfigSource.includes('contactEmail: "info@seavicai.com"')) failures.pu
 if (!siteConfigSource.includes('contactAlias: "contact@seavicai.com"')) failures.push("Contact alias must be retained in configuration.");
 if (!siteConfigSource.includes('bookingUrl: "https://calendly.com/lui-seavicai/30min"')) failures.push("Approved Calendly URL is missing.");
 if (!siteConfigSource.includes("enableBookingLink: true")) failures.push("Calendly booking link must be enabled.");
-if (!bookingLinkSource.includes('target={bookingEnabled ? "_blank" : undefined}') || !bookingLinkSource.includes('rel={bookingEnabled ? "noopener noreferrer" : undefined}')) failures.push("Calendly links must open safely in a new tab.");
+if (!bookingLinkSource.includes('target: "_blank"') || !bookingLinkSource.includes('rel: "noopener noreferrer"')) failures.push("Calendly links must open safely in a new tab.");
 if (bookingLinkSource.includes("Calendly.init") || bookingLinkSource.includes("calendly-inline-widget")) failures.push("Calendly embeds are not approved.");
 for (const [route, html] of [["/", home], ["/ai-security-governance/", security], ["/ai-management-control/", management], ["/ai-enablement-transformation/", transformation], ["/about/", about], ["/how-we-work/", how], ["/contact/", readHtml("/contact/")]]) {
   if (!html.includes('href="https://calendly.com/lui-seavicai/30min"')) failures.push(`${route}: missing approved Calendly CTA.`);
