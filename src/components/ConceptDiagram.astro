@@ -111,7 +111,16 @@ const steps = diagrams[variant];
     {!["hero-control", "risk-evidence", "management", "workflow", "about", "contact"].includes(variant) && (
       <svg viewBox="0 0 1000 440" focusable="false">
         <path class="track" d="M150 220H850" /><path class="track-arrow" d="M834 200l32 20-32 20" />
-        {steps.map((_, index) => <circle class="node" cx={150 + index * (700 / Math.max(steps.length - 1, 1))} cy="220" r="48" />)}
+        {steps.map((step, index) => {
+          const x = 150 + index * (700 / Math.max(steps.length - 1, 1));
+          return (
+            <g>
+              <circle class="node" cx={x} cy="220" r="48" />
+              <text class="stage-index" x={x} y="228">{String(index + 1).padStart(2, "0")}</text>
+              <text class="stage-label" x={x} y="322">{step}</text>
+            </g>
+          );
+        })}
       </svg>
     )}
   </div>
@@ -143,6 +152,7 @@ const steps = diagrams[variant];
   .callout { font-size: 20px; font-weight: 600; text-anchor: start; }
   .center-label { font-size: 20px; font-weight: 800; }
   .stage-label { font-size: 21px; }
+  .stage-index { fill: var(--color-navy); font-family: var(--font-sans); font-size: 18px; font-weight: 800; text-anchor: middle; }
   .stage-detail { font-size: 16px; font-weight: 600; }
   .concept--management .stage-label { font-size: 23px; }
   .concept--management .stage-detail { font-size: 17px; }
