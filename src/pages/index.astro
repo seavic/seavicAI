@@ -93,9 +93,6 @@ import {
       <div class="grid grid--3">
         {offerings.map((offering) => <OfferingCard {...offering} />)}
       </div>
-      <div class="visual-panel offering-visual">
-        <ConceptDiagram variant="offerings" title="Conceptual relationship between SeaVic's Secure, Manage and Transform offerings" />
-      </div>
     </div>
   </section>
 
@@ -128,6 +125,7 @@ import {
       />
       <div class="visual-panel journey-overview">
         <ConceptDiagram variant="journey" title="Compact overview of the SeaVic firm-wide journey" />
+        <p class="lead journey-bridge">This method underpins the entry pathway below, from the AI Control Diagnostic through Managed AI Governance.</p>
         <a class="button" href="/how-we-work/">See How We Work</a>
       </div>
     </div>
@@ -200,7 +198,6 @@ import {
     margin-bottom: 0;
   }
 
-  .offering-visual,
   .journey-overview {
     margin-top: clamp(2rem, 4vw, 2.5rem);
   }
