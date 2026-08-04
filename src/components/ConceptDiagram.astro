@@ -2,7 +2,6 @@
 interface Props {
   variant:
     | "hero-control"
-    | "offerings"
     | "journey"
     | "risk-evidence"
     | "management"
@@ -15,7 +14,6 @@ interface Props {
 
 const diagrams = {
   "hero-control": ["Fragmented AI use and tools", "Visibility", "Governance", "Control"],
-  offerings: ["Secure", "Manage", "Transform"],
   journey: ["Diagnose", "Govern", "Implement", "Transform", "Manage"],
   "risk-evidence": ["Discover AI use", "Assign ownership", "Test controls", "Produce reviewable evidence"],
   management: ["Register inventory and owner", "Observe usage, cost and risk", "Govern policy and decision rights", "Control approvals and limits"],
@@ -109,7 +107,7 @@ const steps = diagrams[variant];
       </svg>
     )}
     {!["hero-control", "risk-evidence", "management", "workflow", "about", "contact"].includes(variant) && (
-      <svg viewBox="0 0 1000 440" focusable="false">
+      <svg viewBox="0 132 1000 270" focusable="false">
         <path class="track" d="M150 220H850" /><path class="track-arrow" d="M834 200l32 20-32 20" />
         {steps.map((step, index) => {
           const x = 150 + index * (700 / Math.max(steps.length - 1, 1));
