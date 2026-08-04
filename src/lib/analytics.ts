@@ -1,6 +1,7 @@
 import { siteConfig } from "../data/siteConfig";
 
 export type AnalyticsEventName =
+  | "calendly_booking_click"
   | "cta_discovery_click"
   | "cta_how_we_work_click"
   | "contact_email_click"
@@ -10,6 +11,10 @@ export type AnalyticsEventName =
 type AnalyticsPayload = Record<string, string | number | boolean | null | undefined>;
 
 export const analyticsEvents: Record<AnalyticsEventName, { purpose: string; piiAllowed: false }> = {
+  calendly_booking_click: {
+    purpose: "Track consented intent to book a SeaVic Discovery Call without collecting Calendly form data.",
+    piiAllowed: false
+  },
   cta_discovery_click: {
     purpose: "Track intent to start a SeaVic Discovery Call.",
     piiAllowed: false
@@ -34,6 +39,7 @@ export const analyticsEvents: Record<AnalyticsEventName, { purpose: string; piiA
 
 export function trackEvent(name: AnalyticsEventName, payload: AnalyticsPayload = {}) {
   if (!analyticsEvents[name]) return;
+  if (siteConfig.flags.analyticsConsentMode && window.localStorage.getItem("seavic-analytics-consent") !== "granted") return;
   if (!siteConfig.flags.enableGA4 && !siteConfig.flags.enableClarity && !siteConfig.flags.enableCloudflareWebAnalytics) return;
 
   const safePayload = Object.fromEntries(

@@ -31,7 +31,9 @@ const about = readHtml("/about/");
 const aboutSource = fs.readFileSync(path.join("src", "pages", "about.astro"), "utf8");
 const howSource = fs.readFileSync(path.join("src", "pages", "how-we-work.astro"), "utf8");
 const contentSource = fs.readFileSync(path.join("src", "data", "content.ts"), "utf8");
+const siteConfigSource = fs.readFileSync(path.join("src", "data", "siteConfig.ts"), "utf8");
 const heroSource = fs.readFileSync(path.join("src", "components", "Hero.astro"), "utf8");
+const bookingLinkSource = fs.readFileSync(path.join("src", "components", "BookingLink.astro"), "utf8");
 const diagramSource = fs.readFileSync(path.join("src", "components", "ConceptDiagram.astro"), "utf8");
 const globalStyles = fs.readFileSync(path.join("src", "styles", "global.css"), "utf8");
 
@@ -63,6 +65,16 @@ if (heroSource.includes("Conceptual advisory diagram")) failures.push("Hero must
 if (!heroSource.includes("Discover AI use, assign ownership, test controls")) failures.push("Hero missing the approved AI Security and Governance visual story.");
 if (!diagramSource.includes("Share the operating issue") || !diagramSource.includes("Agree a useful")) failures.push("Contact missing the complete discovery-call visual story.");
 if (!globalStyles.includes(".concept__mobile-summary { display: none; }") || !globalStyles.includes(".hero {")) failures.push("Critical hero and diagram styles must remain available from the global stylesheet.");
+if (!siteConfigSource.includes('contactEmail: "info@seavicai.com"')) failures.push("Public contact email must be info@seavicai.com.");
+if (!siteConfigSource.includes('contactAlias: "contact@seavicai.com"')) failures.push("Contact alias must be retained in configuration.");
+if (!siteConfigSource.includes('bookingUrl: "https://calendly.com/lui-seavicai/30min"')) failures.push("Approved Calendly URL is missing.");
+if (!siteConfigSource.includes("enableBookingLink: true")) failures.push("Calendly booking link must be enabled.");
+if (!bookingLinkSource.includes('target={bookingEnabled ? "_blank" : undefined}') || !bookingLinkSource.includes('rel={bookingEnabled ? "noopener noreferrer" : undefined}')) failures.push("Calendly links must open safely in a new tab.");
+if (bookingLinkSource.includes("Calendly.init") || bookingLinkSource.includes("calendly-inline-widget")) failures.push("Calendly embeds are not approved.");
+for (const [route, html] of [["/", home], ["/ai-security-governance/", security], ["/ai-management-control/", management], ["/ai-enablement-transformation/", transformation], ["/about/", about], ["/how-we-work/", how], ["/contact/", readHtml("/contact/")]]) {
+  if (!html.includes('href="https://calendly.com/lui-seavicai/30min"')) failures.push(`${route}: missing approved Calendly CTA.`);
+  if (!html.includes('target="_blank"')) failures.push(`${route}: Calendly CTA must open in a new tab.`);
+}
 if (count(home, /Enterprise &amp; Business Leadership|Enterprise & Business Leadership/g) !== 1) failures.push("Homepage missing buyer group: Enterprise & Business Leadership.");
 if (count(home, /Technology &amp; AI Leadership|Technology & AI Leadership/g) !== 1) failures.push("Homepage missing buyer group: Technology & AI Leadership.");
 if (count(home, /Security, Risk &amp; Legal Leadership|Security, Risk & Legal Leadership/g) !== 1) failures.push("Homepage missing buyer group: Security, Risk & Legal Leadership.");

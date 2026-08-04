@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../data/siteConfig";
+import BookingLink from "./BookingLink.astro";
 ---
 
 <div class="contact-panel card">
@@ -10,12 +11,8 @@ import { siteConfig } from "../data/siteConfig";
       Send a short note about the AI decision, operating issue or governance question you want to clarify.
       Please do not include confidential, regulated or sensitive information.
     </p>
-    <p><a class="button" href={`mailto:${siteConfig.contactEmail}`}>Email {siteConfig.contactEmail}</a></p>
-    {
-      siteConfig.flags.enableBookingLink && siteConfig.bookingUrl && (
-        <a class="button" href={siteConfig.bookingUrl}>Book a SeaVic Discovery Call</a>
-      )
-    }
+    <p><BookingLink class="button">Book a SeaVic Discovery Call</BookingLink></p>
+    <p><a href={`mailto:${siteConfig.contactEmail}`}>Email {siteConfig.contactEmail}</a></p>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 ---
 import ConceptDiagram from "./ConceptDiagram.astro";
+import BookingLink from "./BookingLink.astro";
 import { localPath } from "../lib/urls";
 
 interface Props {
@@ -52,7 +53,13 @@ const visualTitles = {
       <h1>{title}</h1>
       <p class="lead">{lead}</p>
       <div class="button-row">
-        <a class="button" href={localPath(primaryHref)}>{primaryLabel}</a>
+        {
+          primaryLabel === "Book a SeaVic Discovery Call" ? (
+            <BookingLink class="button">{primaryLabel}</BookingLink>
+          ) : (
+            <a class="button" href={localPath(primaryHref)}>{primaryLabel}</a>
+          )
+        }
         <a class="button button--secondary" href={localPath(secondaryHref)}>{secondaryLabel}</a>
       </div>
     </div>

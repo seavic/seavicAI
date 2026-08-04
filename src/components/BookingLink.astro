@@ -1,0 +1,19 @@
+---
+import { bookingEnabled, bookingHref } from "../lib/booking";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<a
+  class={className}
+  href={bookingHref}
+  target={bookingEnabled ? "_blank" : undefined}
+  rel={bookingEnabled ? "noopener noreferrer" : undefined}
+  data-calendly-booking-link={bookingEnabled ? "true" : undefined}
+>
+  <slot />
+</a>

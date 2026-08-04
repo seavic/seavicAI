@@ -6,6 +6,7 @@ import SectionHeading from "../components/SectionHeading.astro";
 import OfferingCard from "../components/OfferingCard.astro";
 import EntryPathway from "../components/EntryPathway.astro";
 import CTASection from "../components/CTASection.astro";
+import BookingLink from "../components/BookingLink.astro";
 import {
   audienceQualifier,
   buyerGroups,
@@ -78,7 +79,7 @@ import {
         <h3>Does one of these situations sound familiar?</h3>
         <p>{discoveryCallPrompt.replace("Does one of these situations sound familiar? ", "")}</p>
       </div>
-      <a class="button" href="/contact/">Book a SeaVic Discovery Call</a>
+      <BookingLink class="button">Book a SeaVic Discovery Call</BookingLink>
     </div>
   </section>
 

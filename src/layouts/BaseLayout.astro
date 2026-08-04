@@ -66,5 +66,18 @@ const structuredData = {
       <slot />
     </main>
     <SiteFooter />
+    <script>
+      import { trackEvent } from "../lib/analytics";
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const bookingLink = target.closest("a[data-calendly-booking-link]");
+        if (!bookingLink) return;
+
+        trackEvent("calendly_booking_click", { page: window.location.pathname });
+      });
+    </script>
   </body>
 </html>
