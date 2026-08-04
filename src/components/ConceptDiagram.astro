@@ -10,6 +10,7 @@ interface Props {
     | "contact";
   title?: string;
   tone?: "light" | "dark";
+  captions?: string[];
 }
 
 const diagrams = {
@@ -22,7 +23,7 @@ const diagrams = {
   contact: ["Share the operating issue", "Clarify the leadership decision", "Agree a useful next step"]
 } as const;
 
-const { variant, title = "Conceptual operating-model diagram", tone = "light" } = Astro.props;
+const { variant, title = "Conceptual operating-model diagram", tone = "light", captions } = Astro.props;
 const steps = diagrams[variant];
 ---
 
@@ -122,8 +123,21 @@ const steps = diagrams[variant];
       </svg>
     )}
   </div>
+  {captions && (
+    <div class="concept__captions" style={`--caption-count: ${steps.length}`}>
+      {captions.map((caption) => <p>{caption}</p>)}
+    </div>
+  )}
   <ol class="concept__mobile-summary">
-    {steps.map((step, index) => <li><span>{String(index + 1).padStart(2, "0")}</span><span>{step}</span></li>)}
+    {steps.map((step, index) => (
+      <li>
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <span>
+          {step}
+          {captions && captions[index] && <small>{captions[index]}</small>}
+        </span>
+      </li>
+    ))}
   </ol>
 </figure>
 
@@ -182,12 +196,21 @@ const steps = diagrams[variant];
   .concept--on-dark .output-card { stroke: #79d7db; }
   .concept--on-dark .label, .concept--on-dark .callout, .concept--on-dark .center-label, .concept--on-dark .stage-label, .concept--on-dark .workflow-label, .concept--on-dark .output-label, .concept--on-dark .output-detail, .concept--on-dark .about-label { fill: var(--color-white); }
   .concept__mobile-summary { display: none; }
+  .concept__captions { display: none; grid-template-columns: repeat(var(--caption-count, 5), minmax(0, 1fr)); gap: 0 1rem; margin-top: 0.75rem; }
+  .concept__captions p { margin: 0; padding: 0 0.35rem; color: var(--color-gray); font-family: var(--font-sans); font-size: 0.86rem; line-height: 1.45; text-align: center; }
+  .concept--on-dark .concept__captions p { color: #cfe9ea; }
+  @media (min-width: 761px) {
+    .concept__captions { display: grid; }
+  }
   @media (max-width: 760px) {
     .concept__desktop-art { display: none; }
     .concept__mobile-summary { display: grid; gap: 0.7rem; padding: 0; margin: 0; list-style: none; }
-    .concept__mobile-summary li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 0.8rem; align-items: center; min-width: 0; color: var(--color-ink); font-weight: 750; }
+    .concept__mobile-summary li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 0.8rem; align-items: start; min-width: 0; color: var(--color-ink); font-weight: 750; }
     .concept__mobile-summary li > span:first-child { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-teal); border-radius: 50%; color: var(--color-navy); font-size: 0.85rem; }
     .concept--on-dark .concept__mobile-summary li { color: var(--color-white); }
     .concept--on-dark .concept__mobile-summary li > span:first-child { border-color: #79d7db; color: var(--color-white); }
+    .concept__mobile-summary li > span:last-child { display: flex; flex-direction: column; gap: 0.25rem; padding-top: 0.55rem; }
+    .concept__mobile-summary li small { font-weight: 500; font-size: 0.85rem; color: var(--color-gray); }
+    .concept--on-dark .concept__mobile-summary li small { color: #cfe9ea; }
   }
 </style>
