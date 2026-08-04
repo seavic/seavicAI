@@ -3,24 +3,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { siteConfig } from "../data/siteConfig";
 
-const description = "Website Terms shell for SeaVic Consulting.";
+const description = "Website Terms for SeaVic Consulting.";
 ---
 
 <BaseLayout title="Website Terms" description={description} path="/terms/">
   <Breadcrumbs items={[{ label: "Website Terms", href: "/terms/" }]} />
   <section class="section">
     <div class="container legal-page">
-      <p class="eyebrow">Legal shell</p>
+      <p class="eyebrow">Legal</p>
       <h1>Website Terms</h1>
-      <p class="lead">This page is a structured shell for {siteConfig.corporateName}. Final legal text requires founder and counsel review before publication.</p>
+      <p class="lead">By using this website, you agree to these terms. If you do not agree, please do not use the site.</p>
       <h2>Use of This Website</h2>
-      <p>Website content is provided for general informational purposes and should not be treated as legal, regulatory, security or compliance advice.</p>
+      <p>This website is provided for general informational purposes only. Nothing on this site should be treated as legal, regulatory, security, financial or professional advice.</p>
       <h2>Intellectual Property</h2>
-      <p>{siteConfig.corporateName} owns or controls the website content except where third-party rights are expressly identified.</p>
+      <p>{siteConfig.corporateName} owns or controls the content on this website, including text, graphics and logos, except where third-party rights are expressly identified. You may not copy, reproduce or distribute this content without permission.</p>
+      <h2>No Warranty</h2>
+      <p>This website is provided "as is," without warranties of any kind, express or implied. We do not guarantee that the site will be error-free, uninterrupted or free of viruses.</p>
+      <h2>Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, {siteConfig.corporateName} is not liable for any damages arising from your use of, or inability to use, this website.</p>
       <h2>External Links</h2>
-      <p>External links may be provided for convenience and do not imply endorsement unless expressly approved.</p>
-      <h2>Limitations and Disclaimers</h2>
-      <p>Final limitation language requires founder and counsel approval before public launch.</p>
+      <p>This website may link to third-party sites. We do not control and are not responsible for their content.</p>
+      <h2>Changes to These Terms</h2>
+      <p>We may update these terms from time to time. Continued use of the site after changes means you accept the updated terms.</p>
       <h2>Contact</h2>
       <p><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>
     </div>
